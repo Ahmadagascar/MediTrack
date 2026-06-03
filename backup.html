@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MediTrack Admin Dashboard</title>
+  <link rel="stylesheet" href="./admin.css">
+</head>
+<body>
+  <div id="app" class="app-shell" aria-live="polite"></div>
+
+  <script>
+    const API = "";
+    const doctors = [
+      { id: "doc-1", name: "Dr. Cindy Anticamara", specialty: "General Practice", clinic: "Clinic 1", phone: "+63 917 100 0101", email: "c.anticamara@meditrack.ph", schedule: "Mon-Fri, 8AM-4PM", status: "Available" },
+      { id: "doc-2", name: "Dr. Shin Nuel", specialty: "Dermatology", clinic: "Clinic 2", phone: "+63 917 100 0102", email: "s.nuel@meditrack.ph", schedule: "Tue-Sat, 9AM-5PM", status: "Available" },
+      { id: "doc-3", name: "Dr. Earlyn Nasol", specialty: "Neurology", clinic: "Clinic 3", phone: "+63 917 100 0103", email: "e.nasol@meditrack.ph", schedule: "Mon-Thu, 10AM-6PM", status: "On Session" },
+      { id: "doc-4", name: "Dr. Erich Ulan-Ulan", specialty: "Cardiology", clinic: "Clinic 3", phone: "+63 917 100 0104", email: "e.ulan@meditrack.ph", schedule: "Wed-Sun, 8AM-3PM", status: "Unavailable" }
+    ];
+    const services = [
+      "General Consultation",
+      "Annual Physical Exam",
+      "Blood Test & Lab Work",
+      "ECG & Heart Check",
+      "X-Ray & Imaging",
+      "Vaccination",
+      "Prenatal Check",
+      "Specialist Referral"
+    ];
+
+    const state = {
+      token: localStorage.getItem("token") || "",
+      user: null,
+      view: localStorage.getItem("adminView") || "dashboard",
+      appointments: [],
+      conversations: [],
+      messages: [],
+      doctorStatus: JSON.parse(localStorage.getItem("doctorStatus") || "{}"),
+      activeRecordId: "",
+      activePatientId: localStorage.getItem("activePatientId") || "",
+      servingId: localStorage.getItem("servingAppointmentId") || "",
+      search: "",
+      booking: {
+        userId: "",
+        doctorId: "doc-1",
+        service: "General Consultation",
+        date: new Date().toISOString().slice(0, 10),
+        time: "09:00",
+        notes: ""
+      }
+    };
+
+    const app = document.querySelector("#app");
+
+    function html(strings, ...values) {
+      return strings.reduce((output, part, index) => output + part + (values[index] ?? ""), "");
+    }
+
+    function escapeHtml(value = "") {
+      return String(value).replace(/[&<>"']/g, char => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        "\"": "&quot;",
+        "'": "&#39;"
+      }[char]));
+    }
+
+    async function request(path, options = {}) {
+      const headers = { "Content-Type": "application/json", ...(options.headers || {}) };
+      if (state.token) headers.Authorization = `Bearer ${state.token}`;
+      const response = await fetch(`${API}${path}`, { ...options, headers });
+      const text = await response.text();
+      const data = text ? JSON.parse(text) : {};
+      if (!response.ok) throw new Error(data.error || "Request failed");
+      return data;
+    }
+
+    function toast(message) {
+      const node = document.createElement("div");
+      node.className = "toast";
+      node.textContent = message;
+      document.body.appendChild(node);
+      setTimeout(() => node.remove(), 2600);
+    }
+
+    function initials(name = "Admin User") {
+      return name.split(" ").map(part => part[0]).join("").slice(0, 2).toUpperCase();
+    }
+
+    function formatTime(time = "") {
+      const [hourText, minuteText] = time.split(":");
+      const hour = Number(hourText);
+      const minute = Number(minuteText || 0);
+      if (Number.isNaN(hour)) return time || "-";
+      const suffix = hour >= 12 ? "PM" : "AM";
+      return `${hour % 12 || 12}:${String(minute).padStart(2, "0")} ${suffix}`;
+    }
+
+    function prettyStatus(status) {
+      if (status === "confirmed") return "Approved";
+      if (status === "rejected") return "Declined";
+      return "Pending";
+    }
+
+    function getDoctor(doctorId, doctorName) {
+      return doctors.find(doctor => doctor.id === doctorId || doctor.name === doctorName) || {
+        id: doctorId || "unknown",
+        name: doctorName || "Unassigned Doctor",
+        specialty: "Clinic Doctor",
+        clinic: "Clinic",
+        status: "Available"
+      };
+    }
+
+    function doctorCurrentStatus(doctor) {
+      return state.doctorStatus[doctor.id] || doctor.status;
+    }
+
+    async function loadAdminData() {
+      if (!state.token) return;
+      const me = await request("/api/me");
+      state.user = me.user;
+      if (state.user.role !== "admin") {
+        throw new Error("Admin access is required");
+      }
+      const [appointmentData, conversationData] = await Promise.all([
+        request("/api/admin/appointments"),
+        request("/api/admin/conversations")
+      ]);
+      state.appointments = appointmentData.appointments;
+      state.conversations = conversationData.conversations;
+      if (!state.activeRecordId && state.appointments.length) {
+        state.activeRecordId = state.appointments[0].id;
+      }
+      if (!state.activePatientId && state.conversations.length) {
+        state.activePatientId = state.conversations[0].id;
+        localStorage.setItem("activePatientId", state.activePatientId);
+      }
+      if (state.activePatientId) {
+        const messageData = await request(`/api/admin/messages?userId=${encodeURIComponent(state.activePatientId)}`);
+        state.messages = messageData.messages;
+      }
+    }
+
+    function loginView(error = "") {
+      app.className = "login-shell";
+      app.innerHTML = html`
+        <main class="login-page">
+          <section class="login-brand">
+            <div class="brand-mark">M</div>
+            <h1>MediTrack Admin</h1>
+            <p>Sign in with an administrator account to manage the clinic queue, doctor availability, and patient records.</p>
+          </section>
+          <form class="login-card" id="loginForm">
+            <h2>Admin Sign In</h2>
+            ${error ? `<p class="form-error">${escapeHtml(error)}</p>` : ""}
+            <label>Email Address
+              <input name="email" type="email" autocomplete="username" required>
+            </label>
+            <label>Password
+              <input name="password" type="password" autocomplete="current-password" required>
+            </label>
+            <button class="primary-btn" type="submit">Sign In</button>
+            <p class="hint">Demo admin: admin@meditrack.local / admin123</p>
+          </form>
+        </main>
+      `;
+    }
+
+    function layout(content) {
+      app.className = "app-shell";
+      const navItems = [
+        ["dashboard", "D", "Dashboard"],
+        ["book", "A", "Book Appointment"],
+        ["queue", "Q", "Queue Monitor"],
+        ["doctors", "S", "Doctor Monitor"],
+        ["records", "R", "Records"],
+        ["chat", "C", "Chat Support"]
+      ];
+
+      app.innerHTML = html`
+        <aside class="sidebar">
+          <div class="brand-row">
+            <div class="brand-mark small">M</div>
+            <div>
+              <strong>MediTrack</strong>
+              <span>Admin Portal</span>
+            </div>
+          </div>
+          <div class="admin-profile">
+            <div class="avatar">${initials(state.user?.name || "Admin User")}</div>
+            <div>
+              <strong>${escapeHtml(state.user?.name || "Admin User")}</strong>
+              <span>Administrator</span>
+            </div>
+          </div>
+          <nav class="side-nav">
+            ${navItems.map(([view, letter, label]) => `
+              <button class="${state.view === view ? "active" : ""}" data-view="${view}" type="button"><span>${letter}</span>${label}</button>
+            `).join("")}
+          </nav>
+          <button class="ghost-btn signout" id="logoutBtn" type="button">Sign Out</button>
+        </aside>
+        <main class="main-content">${content}</main>
+      `;
+    }
+
+    function dashboardView() {
+      const pending = state.appointments.filter(item => item.status === "pending").length;
+      const approved = state.appointments.filter(item => item.status === "confirmed").length;
+      const waiting = state.appointments.filter(item => item.status === "confirmed" && item.id !== state.servingId).length;
+      const availableDoctors = doctors.filter(doctor => doctorCurrentStatus(doctor) === "Available").length;
+
+      layout(html`
+        <header class="page-head">
+          <div>
+            <h1>Admin Dashboard</h1>
+            <p>Monitor clinic activity and manage today&apos;s operations.</p>
+          </div>
+          <button class="primary-btn" data-refresh type="button">Refresh</button>
+        </header>
+        <section class="stat-grid">
+          ${statCard("Pending Requests", pending, "Needs review")}
+          ${statCard("Approved Appointments", approved, "Ready for queue")}
+          ${statCard("Waiting in Queue", waiting, "Not yet serving")}
+          ${statCard("Doctors Available", availableDoctors, "Can accept patients")}
+        </section>
+        <section class="two-column">
+          <article class="panel">
+            <div class="panel-head">
+              <h2>Queue Snapshot</h2>
+              <button class="text-btn" data-view="queue" type="button">Open Queue</button>
+            </div>
+            ${queueList(true)}
+          </article>
+          <article class="panel">
+            <div class="panel-head">
+              <h2>Doctors on Duty</h2>
+              <button class="text-btn" data-view="doctors" type="button">Manage</button>
+            </div>
+            <div class="doctor-mini-list">
+              ${doctors.map(doctor => `
+                <div>
+                  <span class="avatar tiny">${initials(doctor.name)}</span>
+                  <strong>${escapeHtml(doctor.name)}</strong>
+                  <em class="status ${statusClass(doctorCurrentStatus(doctor))}">${escapeHtml(doctorCurrentStatus(doctor))}</em>
+                </div>
+              `).join("")}
+            </div>
+          </article>
+        </section>
+        <section class="panel">
+          <div class="panel-head">
+            <h2>Latest Records</h2>
+            <button class="text-btn" data-view="records" type="button">View Records</button>
+          </div>
+          ${recordsTable(state.appointments.slice(0, 5))}
+        </section>
+      `);
+    }
+
+    function statCard(label, value, note) {
+      return html`
+        <article class="stat-card">
+          <span>${escapeHtml(label)}</span>
+          <strong>${escapeHtml(value)}</strong>
+          <small>${escapeHtml(note)}</small>
+        </article>
+      `;
+    }
+
+    function bookAppointmentView() {
+      layout(html`
+        <header class="page-head">
+          <div>
+            <h1>Appointment Requests</h1>
+            <p>Approve or reject patient booking requests from the customer app.</p>
+          </div>
+          <button class="ghost-btn" data-refresh type="button">Refresh</button>
+        </header>
+        <section class="panel">
+          <div class="panel-head">
+            <div>
+              <h2>Appointment Requests</h2>
+              <p>Customer bookings are listed here with their current status.</p>
+            </div>
+            <span class="status pending">${state.appointments.filter(item => item.status === "pending").length} Pending</span>
+          </div>
+          ${appointmentRequestsTable()}
+        </section>
+      `);
+    }
+
+    function appointmentRequestsTable() {
+      if (!state.appointments.length) return `<div class="empty-state">No appointment requests yet.</div>`;
+      const items = [...state.appointments].sort((a, b) => {
+        if (a.status === b.status) return `${b.date} ${b.time}`.localeCompare(`${a.date} ${a.time}`);
+        if (a.status === "pending") return -1;
+        if (b.status === "pending") return 1;
+        return a.status.localeCompare(b.status);
+      });
+
+      return html`
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Patient</th><th>Doctor</th><th>Service</th><th>Schedule</th><th>Status</th><th>Action</th></tr>
+            </thead>
+            <tbody>
+              ${items.map(item => `
+                <tr>
+                  <td>${escapeHtml(item.patientName)}</td>
+                  <td>${escapeHtml(item.doctorName)}</td>
+                  <td>${escapeHtml(item.service)}</td>
+                  <td>${escapeHtml(item.date)} · ${formatTime(item.time)}</td>
+                  <td><span class="status ${item.status}">${prettyStatus(item.status)}</span></td>
+                  <td>
+                    ${item.status === "pending" ? `
+                      <div class="inline-actions">
+                        <button class="primary-btn small" data-appointment-id="${escapeHtml(item.id)}" data-appointment-status="confirmed" type="button">Approve</button>
+                        <button class="danger-btn small" data-appointment-id="${escapeHtml(item.id)}" data-appointment-status="rejected" type="button">Reject</button>
+                      </div>
+                    ` : `<span class="muted-text">Done</span>`}
+                  </td>
+                </tr>
+              `).join("")}
+            </tbody>
+          </table>
+        </div>
+      `;
+    }
+
+    function queueAppointments() {
+      return state.appointments
+        .filter(item => item.status === "confirmed")
+        .sort((a, b) => (a.queueNumber || 999) - (b.queueNumber || 999));
+    }
+
+    function queueView() {
+      const queue = queueAppointments();
+      const serving = queue.find(item => item.id === state.servingId) || queue[0];
+      if (serving && state.servingId !== serving.id) {
+        state.servingId = serving.id;
+        localStorage.setItem("servingAppointmentId", serving.id);
+      }
+
+      layout(html`
+        <header class="page-head">
+          <div>
+            <h1>Queue Monitor</h1>
+            <p>Call patients and track approved appointments in real time.</p>
+          </div>
+          <button class="primary-btn" id="callNextBtn" type="button" ${queue.length ? "" : "disabled"}>Call Next Patient</button>
+        </header>
+        <section class="stat-grid">
+          ${statCard("Total Queue", queue.length, "Approved appointments")}
+          ${statCard("Now Serving", serving ? `Q-${String(serving.queueNumber).padStart(3, "0")}` : "-", serving?.patientName || "No patient")}
+          ${statCard("Waiting", Math.max(queue.length - 1, 0), "Patients remaining")}
+          ${statCard("Avg Wait", averageWait(queue), "Estimated minutes")}
+        </section>
+        <section class="now-serving panel">
+          <div>
+            <span>Now Serving</span>
+            <h2>${serving ? escapeHtml(serving.patientName) : "No active queue"}</h2>
+            <p>${serving ? `${escapeHtml(serving.doctorName)} · ${formatTime(serving.time)}` : "Approve appointments to add them to the queue."}</p>
+          </div>
+          <strong>${serving ? `Q-${String(serving.queueNumber).padStart(3, "0")}` : "--"}</strong>
+        </section>
+        <section class="panel">
+          <div class="panel-head">
+            <h2>Queue List</h2>
+            <button class="ghost-btn" data-refresh type="button">Refresh</button>
+          </div>
+          ${queueList(false)}
+        </section>
+      `);
+    }
+
+    function averageWait(queue) {
+      if (!queue.length) return "0 min";
+      const total = queue.reduce((sum, item) => sum + Number(item.estimatedWait || 0), 0);
+      return `${Math.round(total / queue.length)} min`;
+    }
+
+    function queueList(compact) {
+      const items = queueAppointments();
+      if (!items.length) return `<div class="empty-state">No approved appointments are waiting in the queue.</div>`;
+
+      return html`
+        <div class="${compact ? "queue-compact" : "table-wrap"}">
+          ${compact ? items.slice(0, 4).map(item => queueCompactRow(item)).join("") : `
+            <table>
+              <thead>
+                <tr><th>Queue #</th><th>Patient</th><th>Doctor</th><th>Schedule</th><th>Wait</th><th>Status</th></tr>
+              </thead>
+              <tbody>
+                ${items.map(item => `
+                  <tr>
+                    <td><strong>Q-${String(item.queueNumber).padStart(3, "0")}</strong></td>
+                    <td>${escapeHtml(item.patientName)}</td>
+                    <td>${escapeHtml(item.doctorName)}</td>
+                    <td>${escapeHtml(item.date)} · ${formatTime(item.time)}</td>
+                    <td>${escapeHtml(item.estimatedWait || 0)} min</td>
+                    <td><span class="status ${item.id === state.servingId ? "session" : "waiting"}">${item.id === state.servingId ? "Serving" : "Waiting"}</span></td>
+                  </tr>
+                `).join("")}
+              </tbody>
+            </table>
+          `}
+        </div>
+      `;
+    }
+
+    function queueCompactRow(item) {
+      return html`
+        <div class="compact-row">
+          <strong>Q-${String(item.queueNumber).padStart(3, "0")}</strong>
+          <span>${escapeHtml(item.patientName)}</span>
+          <em>${item.id === state.servingId ? "Serving" : "Waiting"}</em>
+        </div>
+      `;
+    }
+
+    function doctorsView() {
+      const counts = doctors.reduce((total, doctor) => {
+        const status = doctorCurrentStatus(doctor);
+        total[status] = (total[status] || 0) + 1;
+        return total;
+      }, {});
+
+      layout(html`
+        <header class="page-head">
+          <div>
+            <h1>Doctor Monitor</h1>
+            <p>Manage doctor availability for queue and appointment decisions.</p>
+          </div>
+          <button class="ghost-btn" data-reset-doctors type="button">Reset Status</button>
+        </header>
+        <section class="stat-grid">
+          ${statCard("Available", counts.Available || 0, "Ready for patients")}
+          ${statCard("On Session", counts["On Session"] || 0, "Currently consulting")}
+          ${statCard("Unavailable", counts.Unavailable || 0, "Not accepting queue")}
+          ${statCard("Total Doctors", doctors.length, "On the roster")}
+        </section>
+        <section class="doctor-grid">
+          ${doctors.map(doctorCard).join("")}
+        </section>
+      `);
+    }
+
+    function doctorCard(doctor) {
+      const current = doctorCurrentStatus(doctor);
+      return html`
+        <article class="doctor-card">
+          <div class="doctor-head">
+            <span class="avatar">${initials(doctor.name)}</span>
+            <div>
+              <h2>${escapeHtml(doctor.name)}</h2>
+              <p>${escapeHtml(doctor.specialty)} · ${escapeHtml(doctor.clinic)}</p>
+            </div>
+            <em class="status ${statusClass(current)}">${escapeHtml(current)}</em>
+          </div>
+          <dl>
+            <div><dt>Schedule</dt><dd>${escapeHtml(doctor.schedule)}</dd></div>
+            <div><dt>Phone</dt><dd>${escapeHtml(doctor.phone)}</dd></div>
+            <div><dt>Email</dt><dd>${escapeHtml(doctor.email)}</dd></div>
+          </dl>
+          <div class="segmented">
+            ${["Available", "On Session", "Unavailable"].map(status => `
+              <button class="${current === status ? "active" : ""}" data-doctor-id="${doctor.id}" data-doctor-status="${status}" type="button">${status}</button>
+            `).join("")}
+          </div>
+        </article>
+      `;
+    }
+
+    function statusClass(status) {
+      if (status === "Available") return "available";
+      if (status === "On Session") return "session";
+      if (status === "Unavailable") return "unavailable";
+      return "waiting";
+    }
+
+    function recordsView() {
+      const filtered = state.appointments.filter(item => {
+        const text = `${item.patientName} ${item.doctorName} ${item.service} ${item.status}`.toLowerCase();
+        return text.includes(state.search.toLowerCase());
+      });
+      const active = filtered.find(item => item.id === state.activeRecordId) || filtered[0];
+
+      layout(html`
+        <header class="page-head">
+          <div>
+            <h1>Patient Records</h1>
+            <p>View appointment history and patient visit details.</p>
+          </div>
+          <label class="search-box">
+            <span>Search</span>
+            <input id="recordSearch" value="${escapeHtml(state.search)}" placeholder="Patient, doctor, condition...">
+          </label>
+        </header>
+        <section class="records-layout">
+          <article class="panel record-list">
+            <div class="panel-head">
+              <h2>${filtered.length} Records</h2>
+              <button class="ghost-btn" data-refresh type="button">Refresh</button>
+            </div>
+            ${filtered.length ? filtered.map(recordButton).join("") : `<div class="empty-state">No records match your search.</div>`}
+          </article>
+          <article class="panel record-detail">
+            ${active ? recordDetail(active) : `<div class="empty-state">Select a patient to view their record.</div>`}
+          </article>
+        </section>
+      `);
+    }
+
+    function recordButton(item) {
+      return html`
+        <button class="record-item ${state.activeRecordId === item.id ? "active" : ""}" data-record-id="${escapeHtml(item.id)}" type="button">
+          <span class="avatar tiny">${initials(item.patientName)}</span>
+          <span>
+            <strong>${escapeHtml(item.patientName)}</strong>
+            <small>${escapeHtml(item.service)} · ${escapeHtml(item.doctorName)}</small>
+          </span>
+          <em>${escapeHtml(item.date)}</em>
+        </button>
+      `;
+    }
+
+    function recordDetail(item) {
+      const doctor = getDoctor(item.doctorId, item.doctorName);
+      return html`
+        <div class="record-title">
+          <span class="avatar">${initials(item.patientName)}</span>
+          <div>
+            <h2>${escapeHtml(item.patientName)}</h2>
+            <p>Record ${escapeHtml(item.id)}</p>
+          </div>
+          <span class="status ${item.status}">${prettyStatus(item.status)}</span>
+        </div>
+        <div class="detail-grid">
+          ${detail("Doctor", item.doctorName)}
+          ${detail("Specialty", doctor.specialty)}
+          ${detail("Service / Condition", item.service)}
+          ${detail("Date", item.date)}
+          ${detail("Time", formatTime(item.time))}
+          ${detail("Queue Number", `Q-${String(item.queueNumber || 0).padStart(3, "0")}`)}
+          ${detail("Estimated Wait", `${item.estimatedWait || 0} min`)}
+          ${detail("Notes", item.notes || "No notes recorded")}
+        </div>
+        <div class="record-actions">
+          ${item.status === "pending" ? `
+            <button class="primary-btn" data-appointment-id="${item.id}" data-appointment-status="confirmed" type="button">Approve</button>
+            <button class="danger-btn" data-appointment-id="${item.id}" data-appointment-status="rejected" type="button">Decline</button>
+          ` : `<button class="ghost-btn" data-view="queue" type="button">Open Queue Monitor</button>`}
+        </div>
+      `;
+    }
+
+    function detail(label, value) {
+      return `<div><span>${escapeHtml(label)}</span><strong>${escapeHtml(value || "-")}</strong></div>`;
+    }
+
+    function recordsTable(items) {
+      if (!items.length) return `<div class="empty-state">No patient records are available yet.</div>`;
+      return html`
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Patient</th><th>Doctor</th><th>Service</th><th>Date</th><th>Status</th></tr></thead>
+            <tbody>
+              ${items.map(item => `
+                <tr>
+                  <td>${escapeHtml(item.patientName)}</td>
+                  <td>${escapeHtml(item.doctorName)}</td>
+                  <td>${escapeHtml(item.service)}</td>
+                  <td>${escapeHtml(item.date)} · ${formatTime(item.time)}</td>
+                  <td><span class="status ${item.status}">${prettyStatus(item.status)}</span></td>
+                </tr>
+              `).join("")}
+            </tbody>
+          </table>
+        </div>
+      `;
+    }
+
+    function chatView() {
+      const active = state.conversations.find(item => item.id === state.activePatientId);
+      layout(html`
+        <header class="page-head">
+          <div>
+            <h1>Chat Support</h1>
+            <p>Reply to patient questions and appointment concerns.</p>
+          </div>
+          <button class="ghost-btn" data-refresh type="button">Refresh</button>
+        </header>
+        <section class="chat-layout">
+          <aside class="panel conversation-list">
+            <div class="panel-head">
+              <h2>Patients</h2>
+              <span class="status pending">${state.conversations.length}</span>
+            </div>
+            ${state.conversations.length ? state.conversations.map(conversationButton).join("") : `<div class="empty-state">No patient conversations yet.</div>`}
+          </aside>
+          <article class="panel chat-panel">
+            ${active ? chatPanel(active) : `<div class="empty-state">Select a patient conversation.</div>`}
+          </article>
+        </section>
+      `);
+      const list = document.querySelector("#adminMessageList");
+      if (list) list.scrollTop = list.scrollHeight;
+    }
+
+    function conversationButton(item) {
+      return html`
+        <button class="conversation-item ${item.id === state.activePatientId ? "active" : ""}" data-patient-id="${escapeHtml(item.id)}" type="button">
+          <span class="avatar tiny">${initials(item.name)}</span>
+          <span>
+            <strong>${escapeHtml(item.name)}</strong>
+            <small>${escapeHtml(item.lastMessage || "No messages yet")}</small>
+          </span>
+          ${item.lastSender === "patient" ? `<em>New</em>` : ""}
+        </button>
+      `;
+    }
+
+    function chatPanel(patient) {
+      return html`
+        <div class="chat-head">
+          <span class="avatar">${initials(patient.name)}</span>
+          <div>
+            <h2>${escapeHtml(patient.name)}</h2>
+            <p>${escapeHtml(patient.email)}</p>
+          </div>
+          <span class="status confirmed">Encrypted</span>
+        </div>
+        <div class="message-list" id="adminMessageList">
+          ${state.messages.length ? state.messages.map(messageBubble).join("") : `<div class="empty-state">No messages yet.</div>`}
+        </div>
+        <form class="message-form" id="adminReplyForm">
+          <input name="body" placeholder="Type admin reply..." autocomplete="off" required>
+          <button class="primary-btn" type="submit">Send</button>
+        </form>
+      `;
+    }
+
+    function messageBubble(message) {
+      return html`
+        <div class="message-bubble ${message.sender === "support" ? "admin" : "patient"}">
+          <strong>${message.sender === "support" ? "Admin Support" : "Patient"}</strong>
+          <p>${escapeHtml(message.body)}</p>
+          <span>${escapeHtml(message.createdAt)}</span>
+        </div>
+      `;
+    }
+
+    async function render() {
+      try {
+        if (!state.token) {
+          loginView();
+          return;
+        }
+        await loadAdminData();
+        if (state.view === "book") bookAppointmentView();
+        else if (state.view === "queue") queueView();
+        else if (state.view === "doctors") doctorsView();
+        else if (state.view === "records") recordsView();
+        else if (state.view === "chat") chatView();
+        else dashboardView();
+      } catch (error) {
+        localStorage.removeItem("token");
+        state.token = "";
+        state.user = null;
+        loginView(error.message);
+      }
+    }
+
+    async function updateAppointment(id, status) {
+      await request("/api/admin/appointments/status", {
+        method: "POST",
+        body: JSON.stringify({ id, status })
+      });
+      toast(`Appointment ${prettyStatus(status).toLowerCase()}`);
+      await render();
+    }
+
+    document.addEventListener("submit", async event => {
+      event.preventDefault();
+      const form = event.target;
+      const values = Object.fromEntries(new FormData(form).entries());
+      if (form.id === "adminReplyForm") {
+        if (!state.activePatientId) return;
+        await request("/api/admin/messages", {
+          method: "POST",
+          body: JSON.stringify({ userId: state.activePatientId, body: values.body })
+        });
+        form.reset();
+        toast("Reply sent");
+        await render();
+        return;
+      }
+      if (form.id !== "loginForm") return;
+      try {
+        const data = await request("/api/login", { method: "POST", body: JSON.stringify(values) });
+        if (data.user.role !== "admin") throw new Error("This dashboard is for administrators only.");
+        state.token = data.token;
+        state.user = data.user;
+        localStorage.setItem("token", data.token);
+        state.view = "dashboard";
+        localStorage.setItem("adminView", state.view);
+        await render();
+      } catch (error) {
+        loginView(error.message);
+      }
+    });
+
+    document.addEventListener("click", async event => {
+      const viewButton = event.target.closest("[data-view]");
+      if (viewButton) {
+        state.view = viewButton.dataset.view;
+        localStorage.setItem("adminView", state.view);
+        await render();
+        return;
+      }
+
+      if (event.target.closest("#logoutBtn")) {
+        localStorage.removeItem("token");
+        localStorage.removeItem("adminView");
+        state.token = "";
+        state.user = null;
+        state.view = "dashboard";
+        loginView();
+        return;
+      }
+
+      if (event.target.closest("[data-refresh]")) {
+        await render();
+        return;
+      }
+
+      const statusButton = event.target.closest("[data-appointment-status]");
+      if (statusButton) {
+        await updateAppointment(statusButton.dataset.appointmentId, statusButton.dataset.appointmentStatus);
+        return;
+      }
+
+      const doctorButton = event.target.closest("[data-doctor-status]");
+      if (doctorButton) {
+        state.doctorStatus[doctorButton.dataset.doctorId] = doctorButton.dataset.doctorStatus;
+        localStorage.setItem("doctorStatus", JSON.stringify(state.doctorStatus));
+        toast("Doctor status updated");
+        doctorsView();
+        return;
+      }
+
+      if (event.target.closest("[data-reset-doctors]")) {
+        state.doctorStatus = {};
+        localStorage.removeItem("doctorStatus");
+        toast("Doctor statuses reset");
+        doctorsView();
+        return;
+      }
+
+      const recordButton = event.target.closest("[data-record-id]");
+      if (recordButton) {
+        state.activeRecordId = recordButton.dataset.recordId;
+        recordsView();
+        return;
+      }
+
+      const patientButton = event.target.closest("[data-patient-id]");
+      if (patientButton) {
+        state.activePatientId = patientButton.dataset.patientId;
+        localStorage.setItem("activePatientId", state.activePatientId);
+        state.view = "chat";
+        localStorage.setItem("adminView", state.view);
+        await render();
+        return;
+      }
+
+      if (event.target.closest("#callNextBtn")) {
+        const queue = queueAppointments();
+        const currentIndex = queue.findIndex(item => item.id === state.servingId);
+        const next = queue[currentIndex + 1] || queue[0];
+        if (next) {
+          state.servingId = next.id;
+          localStorage.setItem("servingAppointmentId", next.id);
+          toast(`Calling ${next.patientName}`);
+          queueView();
+        }
+      }
+    });
+
+    document.addEventListener("input", event => {
+      if (event.target.id === "recordSearch") {
+        state.search = event.target.value;
+        recordsView();
+      }
+    });
+
+    setInterval(() => {
+      if (state.token) render();
+    }, 30000);
+
+    render();
+  </script>
+</body>
+</html>

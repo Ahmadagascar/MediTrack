@@ -1,0 +1,1941 @@
+{
+  "users": [
+    {
+      "id": "usr-1",
+      "patientId": "PAT-333056",
+      "name": "Airon Manlansing",
+      "email": "airon@example.com",
+      "phone": "12345678945",
+      "dob": "2005-08-23",
+      "bloodType": "Unknown",
+      "passwordHash": "61df67436599364d561500f5b027a6d9fb6a68470f6f540d6dc5afa982ae8440",
+      "role": "patient"
+    },
+    {
+      "id": "usr-1779990126256",
+      "patientId": "PAT-225758",
+      "name": "Dagadas Ahmad",
+      "email": "dagadasahmad@gmail.com",
+      "phone": "09946674013",
+      "dob": "2005-12-25",
+      "bloodType": "Unknown",
+      "passwordHash": "c5f0a4bc889ff392ef4908261ef30cff7c3a15fafd5c7a573464a1287a6bbf71",
+      "role": "patient"
+    },
+    {
+      "id": "usr-1780132993592",
+      "patientId": "PAT-961263",
+      "name": "Cindy Anticamara",
+      "email": "cindyantecamara@gmail.com",
+      "phone": "091237872332",
+      "dob": "2005-08-23",
+      "bloodType": "Unknown",
+      "passwordHash": "4e1630c97364e73aa28beadc6f3f3a8d9d7d7123c2df16205960ddc00b22874c",
+      "role": "patient"
+    },
+    {
+      "id": "adm-1",
+      "patientId": "",
+      "name": "MediTrack Admin",
+      "email": "admin@meditrack.local",
+      "phone": "",
+      "dob": "",
+      "bloodType": "",
+      "role": "admin",
+      "passwordHash": "f89c4c5c8dcb3cbb59c57dba171cade97fe3d0c2b21d5c2286a1bd0748c27cd0"
+    },
+    {
+      "id": "usr-1780133731315",
+      "patientId": "PAT-983738",
+      "name": "Eron Manlansing",
+      "email": "Eronmanlansing@gmail.com",
+      "phone": "09129519985",
+      "dob": "2005-09-23",
+      "bloodType": "Unknown",
+      "role": "patient",
+      "passwordHash": "175165a853de999606a1f955d07058b092d5107cb08b5465d85b15e21209faf1"
+    },
+    {
+      "id": "usr-1780134370299",
+      "patientId": "PAT-398084",
+      "name": "Erich Ulan-ulan",
+      "email": "erich.ulanulan.official@gmail.com",
+      "phone": "09352939388",
+      "dob": "2005-09-23",
+      "bloodType": "Unknown",
+      "role": "patient",
+      "passwordHash": "e77667247b7567369dc46981f7680f41d2538351600752a01405d72d07ea8381"
+    },
+    {
+      "id": "usr-1780152944434",
+      "patientId": "PAT-338418",
+      "name": "Airon Manlansing",
+      "email": "Aironmanlansingofficial@gmail.com",
+      "phone": "09649406725",
+      "dob": "2005-08-23",
+      "bloodType": "Unknown",
+      "role": "patient",
+      "passwordHash": "175165a853de999606a1f955d07058b092d5107cb08b5465d85b15e21209faf1"
+    },
+    {
+      "id": "usr-1780155494400",
+      "patientId": "PAT-955965",
+      "name": "Erich Magnanao",
+      "email": "Erichmagnanao@gmail.com",
+      "phone": "12345678945",
+      "dob": "2005-08-23",
+      "bloodType": "Unknown",
+      "role": "patient",
+      "passwordHash": "7b3be2867e3fa520f3b32a70d423257c7100b509365f0dff8d7def4e07206516"
+    },
+    {
+      "id": "usr-1780155620614",
+      "patientId": "PAT-735625",
+      "name": "Deniel Javier",
+      "email": "DenielJavier@gmail.com",
+      "phone": "093027054323",
+      "dob": "2026-12-25",
+      "bloodType": "Unknown",
+      "role": "patient",
+      "passwordHash": "d074a0730bbae7c3561a2b5b8f7e70b0a9c351b722b0cea7bd01e8eec85cb9d8"
+    },
+    {
+      "id": "usr-1780211276793",
+      "patientId": "PAT-170067",
+      "name": "Ahmad Dagadas",
+      "email": "ahmaddagadas@gmail.com",
+      "phone": "123456789",
+      "dob": "2005-12-25",
+      "bloodType": "Unknown",
+      "role": "patient",
+      "passwordHash": "175165a853de999606a1f955d07058b092d5107cb08b5465d85b15e21209faf1"
+    },
+    {
+      "id": "usr-1780212708713",
+      "patientId": "PAT-296451",
+      "name": "Rain Rain",
+      "email": "rainrain@gmail.com",
+      "phone": "093528374",
+      "dob": "2001-12-20",
+      "bloodType": "Unknown",
+      "role": "patient",
+      "passwordHash": "7b3be2867e3fa520f3b32a70d423257c7100b509365f0dff8d7def4e07206516"
+    },
+    {
+      "id": "usr-1780217700115",
+      "patientId": "PAT-630079",
+      "name": "Airon Manlansing",
+      "email": "manlansingairon@gmail.com",
+      "phone": "09649406725",
+      "dob": "2005-09-23",
+      "bloodType": "Unknown",
+      "role": "patient",
+      "passwordHash": "7b3be2867e3fa520f3b32a70d423257c7100b509365f0dff8d7def4e07206516"
+    },
+    {
+      "id": "usr-1780217868077",
+      "patientId": "PAT-170060",
+      "name": "Chimi Latmi",
+      "email": "maekylar022@gmail.com",
+      "phone": "+639474818179",
+      "dob": "2006-05-10",
+      "bloodType": "Unknown",
+      "role": "patient",
+      "passwordHash": "d6c98126b498e1259815914c8b9837b432a6881c85c5de764ae92d75670839c8"
+    },
+    {
+      "id": "usr-1780232519201",
+      "patientId": "PAT-623889",
+      "name": "Jen Lacanlale",
+      "email": "Jenlacanlale@gmai.com",
+      "phone": "09649406715",
+      "dob": "2005-12-03",
+      "bloodType": "Unknown",
+      "role": "patient",
+      "passwordHash": "7b3be2867e3fa520f3b32a70d423257c7100b509365f0dff8d7def4e07206516"
+    },
+    {
+      "id": "usr-1780236675484",
+      "patientId": "PAT-918343",
+      "name": "Joanna Lois Aguilar",
+      "email": "Joannaloisaguilar@gmail.com",
+      "phone": "09649406725",
+      "dob": "2026-05-31",
+      "bloodType": "Unknown",
+      "role": "patient",
+      "passwordHash": "175165a853de999606a1f955d07058b092d5107cb08b5465d85b15e21209faf1"
+    },
+    {
+      "id": "usr-1780237209101",
+      "patientId": "PAT-119505",
+      "name": "Jen Lacanlale",
+      "email": "jenlacanlale06@gmail.com",
+      "phone": "09501822173",
+      "dob": "2005-12-06",
+      "bloodType": "Unknown",
+      "role": "patient",
+      "passwordHash": "2a87b125a8a3d3496a0a1470dc3e4c21566d883ea22531e2a3bfa8606e390b81"
+    }
+  ],
+  "sessions": {
+    "f76d7f492344c6aa5a1c74e5fdd548a5c70800053b7ad639a5ee43ea598f4224": "usr-1",
+    "3cdacb8d52423bf0ed8d380455e2aa5e04c8d7621fe239d7be095a0ec967f8f9": "usr-1",
+    "2f0ea229e886f9d76449a9ab86a6b05f9153f942ef798ca792c7427a87d11d45": "usr-1",
+    "5a752c0ac0e7e0e44b0a3a5694191fbb103fe1b440ea4ee5eddaa77c47cdc264": "usr-1",
+    "1a779ca9678326c9c38e871c320c1182a216aed0dae05215ccfdc88d8bfbc869": "usr-1779990126256",
+    "7b07ebabf7397a0d02c8df83917229b7a83c389952ef33e9b563db51249b7ceb": "usr-1779990126256",
+    "c2a768199f539793c4aeb5f6e8c9e33f5ed52cfa2e70780c2ce78f54afdb0b64": "usr-1",
+    "d90e140301652bc5188db5f4f097470dbe1062e474ccf7e96dd979470aa5fa54": "usr-1779990126256",
+    "5ebc6d8e84da66474fbb379077f76dea7f2bd7d3ee7d17a729cc6050843ffbc9": "usr-1",
+    "d1590ca0ae3e429867f65901e53ce0b3ebad6372980f1aef7cfe6daee67ebdc9": "usr-1",
+    "cddaa3838eefcf8c7f79e1af6b63377968f241c6b96be3e4309ba7bb012d96b8": "usr-1779990126256",
+    "71da97cbb67c486b70f5c1b33ff6b82e07eada721262466f5ddb918b5cd3417f": "usr-1",
+    "9bb2709f2afa223a49da8ee1fb30b8dcab26930c860b9508f146c5a33deb53b7": "usr-1780132993592",
+    "ef271e3d183953522a7d98644aa6c4acacaccd6046635a9622a52f5a56c55fb8": "usr-1780132993592",
+    "ec5867157bbe31364d571bc68d75923ca1acc19246842c3868787ae4e58d9e8c": "adm-1",
+    "c7855c2907ef761fb1577da9dd409d9cba444807291b5280f68440a7a05d92a6": "adm-1",
+    "3c5ec62765bd693e32804434f00225b9575e0695e860f4adb7517070bfb43bb7": "adm-1",
+    "e35cd2d8819b6ecbcf298e8ef9d82e736486839cefd2eea6b6dd64c18eec5fd1": "adm-1",
+    "1201b20ab9aabeb5e81d56b13df20ca19e8f7c7cdd28f98733f7d9a48bf810e6": "adm-1",
+    "be2d4347475810eccd5b451c259d264a4d0bd80c47483fd473ec810a79567d32": "usr-1",
+    "53ebecad8ccad3dcb3ba62c81e6cfa6dd6e015ccd8619c25607002e52169d549": "usr-1780133731315",
+    "4ff43401ce3e913e61597cad909a2ae855fd4e8f093de6f07fbc4bdf68f3166a": "adm-1",
+    "9e0893903089ec9bc68d84c11c81b589fa84c0efc9b09f8f37f41ef3d0a999bc": "usr-1780134370299",
+    "1a727176b55bb1c0359737713a702e7f1e5cff1e856a7d825031a45acfc77291": "usr-1",
+    "0ec6b7d22c9de564a497363881caeb41f1f7db97070d1128f9aec7a15fe08d82": "usr-1",
+    "54dec83241482abaffeda0f3e89d38b31d969929f0f0af11b33096e5cd19f552": "adm-1",
+    "55da2100a936212f005482a5de88fea406aa4fa9c24284c704e98024c11eedcb": "usr-1780133731315",
+    "fcc43228cd69d0b9257d547687c782ceb7252acc8c2e9dfb3686c875076d9ce8": "usr-1780132993592",
+    "4c7e34a006bc4e14c55015e6f319f6841a814f2dbae1ea785803dad98bd7f6b6": "adm-1",
+    "7f4e53550300a345c6bb09a61369d3b4e0726d4b97e66141d40b6176f2091c79": "adm-1",
+    "4dff687a59361c6cf67744e54a77c4a0c70f73d3c073e66c1ff4cb5258d7d9f0": "usr-1",
+    "08c7bc43bdd9e33a35aeebb804b8663c126d8e042edf0a7623b6002e92b7fdaf": "usr-1780132993592",
+    "71574f9007f4d71d82ffd0c628a45fade123896fb280459dd53310114628e0f7": "usr-1780132993592",
+    "0224f2607ef0319aabf05fd2cc36f8c3c19af29fe03e75d9636bff49157e64fd": "usr-1780152944434",
+    "64e52176284d6b336a68677959b1538afcfd7c4882b370cb68b1f914816e272f": "adm-1",
+    "c0295ab7a6b7adeef3a67601e3c849bd17f3e9d36bb9b06de98ae62b1df2f0e8": "usr-1780132993592",
+    "e4d5246609f4364ca39b38ef47e12aa0131134471b756f424ca380a623fdfb50": "usr-1780132993592",
+    "cbaebd56f3dfcc484b45cb7a993a802592a4068a714d81eaf9a3b7d125e0a429": "adm-1",
+    "9a91c08a2d68828a39424578c5cab3af3ab7d78986bdb71b98c0c955176a6ae4": "usr-1780155494400",
+    "12a23098874b53bd82041f504071d8c41c691d6565d7a358fc7dd2e83f36cff1": "usr-1780155620614",
+    "2bb930b8b935c73397f5726e15d2eed597f52e401705b9939ff254580fc3e84a": "usr-1",
+    "94fa02e63b1786459d056cef0b12b17535441171db30d1dcf99d1b579fffd8c3": "usr-1780211276793",
+    "b2e9b224ffb9f1ad5bd458dc2f558b5fd7b4c92c2ff77d98a5dba215c75d8184": "adm-1",
+    "b61c659e2c54a6c10b03375b86d77e1aab081ef5abd856a5a9a37d7690cc08bf": "adm-1",
+    "cdce81b2ed949db219ed8e536c76fce18471f4aa285b5d5a7dcc6ec81884ae9d": "usr-1780212708713",
+    "1d4772811dd2c82427a477552fc864949a46c9c6d9dea862837abdce78cb0744": "usr-1780212708713",
+    "df772c28150c463ff70521c2dbc496febed320d99abbd5b10bfd8e8cebf7174f": "usr-1780212708713",
+    "36c179556cf10e9230262d550e485ee4de6b85ad34dba0b2cd354a7cd1bfdebb": "adm-1",
+    "d206e4cafa1bd7ca92afe7bde023d3ea0bfa28eb71d21d5c46feb2904b9f431d": "usr-1780212708713",
+    "7c75287f27b6a860918de5981dfadc1e4a0de0239b4868fe11e1616e4b3e6c2a": "adm-1",
+    "f6f89d3570823eb26a8979c35f2e8bbe4e06d81f29390c58542a2c1ecb0874fb": "usr-1780212708713",
+    "f8ce68d886a230956c1ba61eaba3687561453b89b59545b2bc95a2545ac80269": "adm-1",
+    "3266c5d8563baf375829b6d8da1edb89d32caf08e20df3b01a6402eef18dd286": "usr-1780212708713",
+    "fbe47307c546009311eecd3f4a02e66deeef21c89061df6f0fa8c32525d37d80": "usr-1780212708713",
+    "a85e4a926da227fcb50a930cd313697997479e25074a861102aea90ece4ce55b": "usr-1780212708713",
+    "e8ee01ceef34711b6013469e3e9891b8413d7a6e8bcebce4b3fc0cc4fe5c8c24": "usr-1780212708713",
+    "b5c2bc4509edb4c5155ea0c6595d058b206c1f7f039f60483444a3cfcd599e5b": "adm-1",
+    "6cee46fe9cf25e2460e0315999ad3f5eb38a462936ddfbb18c1f96af6dfd501f": "usr-1780212708713",
+    "9d45343eebf444753c60d28b29148da991c9a7fae23b8678d64605db3aa9cf40": "usr-1780212708713",
+    "d23eb13e6e862c8265c3a30c501a52cc837685e23be00e109648744df2e1ac47": "usr-1780212708713",
+    "513706504ce66fa52a4f44a94595e88cd616a0ff6dccce7dfb73e80bdfa41c68": "usr-1780217700115",
+    "aefbc8537eb24c89490f4a0a7d90a52a5e454d38ce6981bcd55156c7123fe17c": "usr-1780212708713",
+    "7ec6377322be9600f2f7065ac4a79fdc19ed6d4c8b6a5676083182a70a6c8514": "adm-1",
+    "e88c59141ea368667965180391eeecad654447fb64b126755268b76afdba656e": "adm-1",
+    "537cf2cd32d42be03710e24abc97fad70764020a8d226e173bc2de560ccb7b73": "usr-1780217868077",
+    "3e6d17bc7d4365857432cf374bc408b276764f5799b83d4ce8374f5c31e0f6da": "adm-1",
+    "b0e7d62e90a0a0edba2f7d3a5ddcb3f39f230639596fa0ff098faba6ab27a881": "adm-1",
+    "d0ee7f5f02fa5ece14461885829ba6df0bf364fc1893c094fc5d3fbd438d32b4": "usr-1780212708713",
+    "d506f4545eb00ccadae2b5e17f80bfc6818d04fa24bdf98af9b314c8427118fe": "usr-1780212708713",
+    "b0781108623e6e22e7ccf3089b4cd398b456278a07d788be0855c07009be8ca4": "usr-1780232519201",
+    "d37ed8b3235ef8947c91c1c5547c8b0064b691aadf195cdd1023885b92390ce6": "adm-1",
+    "b8914b538aff19ed93fd7e9b44879dc0e5dff13fa580a6d5e7ea14f2fc779d68": "usr-1780236675484",
+    "a35f496589dd0d5b0f4db95a278b4778c5d49867074c74a65b70d1ee53f2f065": "adm-1",
+    "b9d626b132f8672a3fdda54f6820d2f8822f82222d106c364a605f65a1ba8f8a": "usr-1780212708713",
+    "68503850c27d12620277cb8d332b0c3790edc85f2cb609775fe4ac2dc75a28c5": "adm-1",
+    "46c198323a77f649a8b91e3bfa741d2e423a434da3db2920cab3811ff1f74696": "usr-1780237209101",
+    "46cb2b5817ac5cd249e08d2e4e8294331f558ee439f2426a8fade4146ce02257": "adm-1",
+    "4a524e8023fa303cf9e48292bb73e47ade69b8ed13819bdf9cef5d05fd62dd23": "usr-1780237209101",
+    "6dc3c40c0704b3b8a80930accab96fc20314e47f68236ecc9abc0041976d7894": "adm-1",
+    "7824c4925ef6e425ae8070343ebe309c036c8aa01ae7102794dfaa76ba3a26f0": "usr-1780212708713"
+  },
+  "appointments": [
+    {
+      "id": "APT-57254",
+      "userId": "usr-1",
+      "doctorId": "doc-4",
+      "doctorName": "Dr. Erich Ulan-Ulan",
+      "service": "ECG & Heart Check",
+      "date": "2026-05-26",
+      "time": "15:00",
+      "status": "rejected",
+      "queueNumber": 13,
+      "estimatedWait": 18,
+      "notes": ""
+    },
+    {
+      "id": "APT-47991",
+      "userId": "usr-1780132993592",
+      "doctorId": "doc-4",
+      "doctorName": "Dr. Erich Ulan-Ulan",
+      "service": "ECG & Heart Check",
+      "date": "2026-05-27",
+      "time": "09:00",
+      "status": "completed",
+      "queueNumber": null,
+      "estimatedWait": 47,
+      "notes": ""
+    },
+    {
+      "id": "APT-91372",
+      "userId": "usr-1780133731315",
+      "doctorId": "doc-2",
+      "doctorName": "Dr. Shin Nuel",
+      "service": "ECG & Heart Check",
+      "date": "2026-05-27",
+      "time": "09:00",
+      "status": "rejected",
+      "queueNumber": 12,
+      "estimatedWait": 35,
+      "notes": ""
+    },
+    {
+      "id": "APT-26814",
+      "userId": "usr-1780134370299",
+      "doctorId": "doc-2",
+      "doctorName": "Dr. Shin Nuel",
+      "service": "X-Ray & Imaging",
+      "date": "2026-05-30",
+      "time": "10:00",
+      "status": "completed",
+      "queueNumber": null,
+      "estimatedWait": 39,
+      "notes": ""
+    },
+    {
+      "id": "APT-68208",
+      "userId": "usr-1780133731315",
+      "doctorId": "doc-1",
+      "doctorName": "Dr. Cindy Anticamara",
+      "service": "ECG & Heart Check",
+      "date": "2026-05-27",
+      "time": "10:00",
+      "status": "completed",
+      "queueNumber": null,
+      "estimatedWait": 47,
+      "notes": ""
+    },
+    {
+      "id": "APT-77233",
+      "userId": "usr-1780132993592",
+      "doctorId": "doc-2",
+      "doctorName": "Dr. Shin Nuel",
+      "service": "X-Ray & Imaging",
+      "date": "2026-05-27",
+      "time": "09:00",
+      "status": "completed",
+      "queueNumber": null,
+      "estimatedWait": 15,
+      "notes": ""
+    },
+    {
+      "id": "APT-38671",
+      "userId": "usr-1780152944434",
+      "doctorId": "doc-1",
+      "doctorName": "Dr. Cindy Anticamara",
+      "service": "General Consultation",
+      "date": "2026-05-27",
+      "time": "10:00",
+      "status": "completed",
+      "queueNumber": null,
+      "estimatedWait": 26,
+      "notes": ""
+    },
+    {
+      "id": "APT-61274",
+      "userId": "usr-1780152944434",
+      "doctorId": "doc-3",
+      "doctorName": "Dr. Earlyn Nasol",
+      "service": "General Consultation",
+      "date": "2026-05-27",
+      "time": "14:00",
+      "status": "completed",
+      "queueNumber": null,
+      "estimatedWait": 27,
+      "notes": ""
+    },
+    {
+      "id": "APT-57159",
+      "userId": "usr-1780155494400",
+      "doctorId": "doc-1",
+      "doctorName": "Dr. Cindy Anticamara",
+      "service": "General Consultation",
+      "date": "2026-05-27",
+      "time": "15:00",
+      "status": "completed",
+      "queueNumber": null,
+      "estimatedWait": 13,
+      "notes": ""
+    },
+    {
+      "id": "APT-95865",
+      "userId": "usr-1780155494400",
+      "doctorId": "doc-1",
+      "doctorName": "Dr. Cindy Anticamara",
+      "service": "Annual Physical Exam",
+      "date": "0002-05-31",
+      "time": "09:00",
+      "status": "completed",
+      "queueNumber": null,
+      "estimatedWait": 35,
+      "notes": ""
+    },
+    {
+      "id": "APT-86980",
+      "userId": "usr-1780155494400",
+      "doctorId": "doc-1",
+      "doctorName": "Dr. Cindy Anticamara",
+      "service": "Annual Physical Exam",
+      "date": "0020-05-31",
+      "time": "09:00",
+      "status": "completed",
+      "queueNumber": null,
+      "estimatedWait": 16,
+      "notes": ""
+    },
+    {
+      "id": "APT-18839",
+      "userId": "usr-1780155494400",
+      "doctorId": "doc-1",
+      "doctorName": "Dr. Cindy Anticamara",
+      "service": "General Consultation",
+      "date": "0002-05-31",
+      "time": "11:00",
+      "status": "completed",
+      "queueNumber": null,
+      "estimatedWait": 43,
+      "notes": ""
+    },
+    {
+      "id": "APT-58452",
+      "userId": "usr-1780211276793",
+      "doctorId": "doc-1",
+      "doctorName": "Dr. Cindy Anticamara",
+      "service": "General Consultation",
+      "date": "2026-05-31",
+      "time": "09:00",
+      "status": "completed",
+      "queueNumber": null,
+      "estimatedWait": 12,
+      "notes": ""
+    },
+    {
+      "id": "APT-35702",
+      "userId": "usr-1780212708713",
+      "doctorId": "doc-1",
+      "doctorName": "Dr. Cindy Anticamara",
+      "service": "X-Ray & Imaging",
+      "date": "2026-05-31",
+      "time": "09:00",
+      "status": "completed",
+      "queueNumber": null,
+      "estimatedWait": 38,
+      "notes": ""
+    },
+    {
+      "id": "APT-53213",
+      "userId": "usr-1780212708713",
+      "doctorId": "doc-2",
+      "doctorName": "Dr. Shin Nuel",
+      "service": "Blood Test & Lab Work",
+      "date": "2026-05-31",
+      "time": "15:00",
+      "status": "completed",
+      "queueNumber": null,
+      "estimatedWait": 30,
+      "notes": ""
+    },
+    {
+      "id": "APT-82340",
+      "userId": "usr-1780212708713",
+      "doctorId": "doc-1",
+      "doctorName": "Dr. Cindy Anticamara",
+      "service": "Vaccination",
+      "date": "2026-05-31",
+      "time": "14:00",
+      "status": "completed",
+      "queueNumber": null,
+      "estimatedWait": 43,
+      "notes": ""
+    },
+    {
+      "id": "APT-63396",
+      "userId": "usr-1780212708713",
+      "doctorId": "doc-3",
+      "doctorName": "Dr. Earlyn Nasol",
+      "service": "Specialist Referral",
+      "date": "2026-05-31",
+      "time": "14:00",
+      "status": "completed",
+      "queueNumber": null,
+      "estimatedWait": 38,
+      "notes": ""
+    },
+    {
+      "id": "APT-52503",
+      "userId": "usr-1780212708713",
+      "doctorId": "doc-4",
+      "doctorName": "Dr. Erich Ulan-Ulan",
+      "service": "Vaccination",
+      "date": "2026-05-31",
+      "time": "15:00",
+      "status": "completed",
+      "queueNumber": null,
+      "estimatedWait": 36,
+      "notes": ""
+    },
+    {
+      "id": "APT-25215",
+      "userId": "usr-1780217868077",
+      "doctorId": "doc-2",
+      "doctorName": "Dr. Shin Nuel",
+      "service": "Vaccination",
+      "date": "2026-05-31",
+      "time": "11:00",
+      "status": "completed",
+      "queueNumber": null,
+      "estimatedWait": 22,
+      "notes": "Gitubol"
+    },
+    {
+      "id": "APT-15955",
+      "userId": "usr-1780232519201",
+      "doctorId": "doc-1",
+      "doctorName": "Dr. Cindy Anticamara",
+      "service": "General Consultation",
+      "date": "2026-06-01",
+      "time": "15:00",
+      "status": "completed",
+      "queueNumber": null,
+      "estimatedWait": 25,
+      "notes": ""
+    },
+    {
+      "id": "APT-73754",
+      "userId": "usr-1780232519201",
+      "doctorId": "doc-2",
+      "doctorName": "Dr. Shin Nuel",
+      "service": "ECG & Heart Check",
+      "date": "2026-05-31",
+      "time": "15:00",
+      "status": "completed",
+      "queueNumber": null,
+      "estimatedWait": 24,
+      "notes": ""
+    },
+    {
+      "id": "APT-99890",
+      "userId": "usr-1780236675484",
+      "doctorId": "doc-1",
+      "doctorName": "Dr. Cindy Anticamara",
+      "service": "Specialist Referral",
+      "date": "2026-05-31",
+      "time": "15:00",
+      "status": "completed",
+      "queueNumber": null,
+      "estimatedWait": 46,
+      "notes": ""
+    },
+    {
+      "id": "APT-34415",
+      "userId": "usr-1780237209101",
+      "doctorId": "doc-1",
+      "doctorName": "Dr. Cindy Anticamara",
+      "service": "General Consultation",
+      "date": "2026-06-03",
+      "time": "10:00",
+      "status": "completed",
+      "queueNumber": null,
+      "estimatedWait": 21,
+      "notes": ""
+    },
+    {
+      "id": "APT-94734",
+      "userId": "usr-1780237209101",
+      "doctorId": "doc-2",
+      "doctorName": "Dr. Shin Nuel",
+      "service": "ECG & Heart Check",
+      "date": "2026-05-31",
+      "time": "15:00",
+      "status": "completed",
+      "queueNumber": null,
+      "estimatedWait": 29,
+      "notes": ""
+    }
+  ],
+  "notifications": [
+    {
+      "id": "ntf-1",
+      "userId": "usr-1",
+      "title": "Welcome to MediTrack",
+      "body": "Your account has been created successfully.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1779990126256",
+      "userId": "usr-1779990126256",
+      "title": "Registration Successful",
+      "body": "Welcome to MediTrack, Dagadas! Your account has been created successfully.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780132993592",
+      "userId": "usr-1780132993592",
+      "title": "Registration Successful",
+      "body": "Welcome to MediTrack, Cindy! Your account has been created successfully.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780133020959",
+      "userId": "usr-1780132993592",
+      "title": "Appointment Created",
+      "body": "ECG & Heart Check with Dr. Erich Ulan-Ulan is pending confirmation.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780133377526",
+      "userId": "usr-1",
+      "title": "Appointment Accepted",
+      "body": "ECG & Heart Check with Dr. Erich Ulan-Ulan is now confirmed.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780133396276",
+      "userId": "usr-1",
+      "title": "Appointment Updated",
+      "body": "ECG & Heart Check with Dr. Erich Ulan-Ulan is now pending.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780133411218",
+      "userId": "usr-1",
+      "title": "New Support Reply",
+      "body": "Clinic staff replied to your chat.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780133486238",
+      "userId": "usr-1780132993592",
+      "title": "New Support Reply",
+      "body": "Clinic staff replied to your chat.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780133493080",
+      "userId": "usr-1",
+      "title": "Appointment Updated",
+      "body": "ECG & Heart Check with Dr. Erich Ulan-Ulan is now rejected.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780133494319",
+      "userId": "usr-1780132993592",
+      "title": "Appointment Accepted",
+      "body": "ECG & Heart Check with Dr. Erich Ulan-Ulan is now confirmed.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780133731315",
+      "userId": "usr-1780133731315",
+      "title": "Registration Successful",
+      "body": "Welcome to MediTrack, Eron! Your account has been created successfully.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780133762918",
+      "userId": "usr-1780133731315",
+      "title": "Appointment Created",
+      "body": "ECG & Heart Check with Dr. Shin Nuel is pending confirmation.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780133813105",
+      "userId": "usr-1780133731315",
+      "title": "New Support Reply",
+      "body": "Clinic staff replied to your chat.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780133837063",
+      "userId": "usr-1780133731315",
+      "title": "New Support Reply",
+      "body": "Clinic staff replied to your chat.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780134370299",
+      "userId": "usr-1780134370299",
+      "title": "Registration Successful",
+      "body": "Welcome to MediTrack, Erich! Your account has been created successfully.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780134437788",
+      "userId": "usr-1780134370299",
+      "title": "Appointment Created",
+      "body": "X-Ray & Imaging with Dr. Shin Nuel is pending confirmation.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780137306766-919",
+      "userId": "usr-1",
+      "title": "Message Sent",
+      "body": "Your message was delivered to clinic staff.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780137557909-796",
+      "userId": "usr-1780133731315",
+      "title": "Appointment Request Sent",
+      "body": "ECG & Heart Check with Dr. Cindy Anticamara is waiting for admin approval.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780137746434-667",
+      "userId": "usr-1780133731315",
+      "title": "Appointment Accepted",
+      "body": "ECG & Heart Check with Dr. Cindy Anticamara is now confirmed.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780137759142-187",
+      "userId": "usr-1780133731315",
+      "title": "Appointment Updated",
+      "body": "ECG & Heart Check with Dr. Shin Nuel is now rejected.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780142898621-38",
+      "userId": "usr-1780132993592",
+      "title": "Appointment Request Sent",
+      "body": "X-Ray & Imaging with Dr. Shin Nuel is waiting for admin approval.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780142922966-807",
+      "userId": "usr-1780132993592",
+      "title": "Message Sent",
+      "body": "Your message was delivered to clinic staff.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780142926685-361",
+      "userId": "usr-1780132993592",
+      "title": "Message Sent",
+      "body": "Your message was delivered to clinic staff.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780152944434",
+      "userId": "usr-1780152944434",
+      "title": "Registration Successful",
+      "body": "Welcome to MediTrack, Airon! Your account has been created successfully.",
+      "read": true,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780155494400",
+      "userId": "usr-1780155494400",
+      "title": "Registration Successful",
+      "body": "Welcome to MediTrack, Erich! Your account has been created successfully.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780155620614",
+      "userId": "usr-1780155620614",
+      "title": "Registration Successful",
+      "body": "Welcome to MediTrack, Deniel! Your account has been created successfully.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780211276793",
+      "userId": "usr-1780211276793",
+      "title": "Registration Successful",
+      "body": "Welcome to MediTrack, Ahmad! Your account has been created successfully.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780212708713",
+      "userId": "usr-1780212708713",
+      "title": "Registration Successful",
+      "body": "Welcome to MediTrack, Rain! Your account has been created successfully.",
+      "read": true,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780217067640-571",
+      "userId": "usr-1780132993592",
+      "title": "Message Sent",
+      "body": "Your message was delivered to clinic staff.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780217067658-525",
+      "userId": "usr-1780152944434",
+      "title": "Appointment Request Sent",
+      "body": "General Consultation with Dr. Cindy Anticamara is waiting for admin approval.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780217067659-419",
+      "userId": "usr-1780152944434",
+      "title": "Message Sent",
+      "body": "Your message was delivered to clinic staff.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780217067662-964",
+      "userId": "usr-1780152944434",
+      "title": "New Support Reply",
+      "body": "Clinic staff replied to your chat.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780217067664-961",
+      "userId": "usr-1780152944434",
+      "title": "Appointment Request Sent",
+      "body": "General Consultation with Dr. Earlyn Nasol is waiting for admin approval.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780217067665-39",
+      "userId": "usr-1780152944434",
+      "title": "Appointment Accepted",
+      "body": "General Consultation with Dr. Earlyn Nasol is now confirmed.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780217067666-47",
+      "userId": "usr-1780152944434",
+      "title": "Message Sent",
+      "body": "Your message was delivered to clinic staff.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780217067669-163",
+      "userId": "usr-1780155494400",
+      "title": "Appointment Request Sent",
+      "body": "General Consultation with Dr. Cindy Anticamara is waiting for admin approval.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780217067670-483",
+      "userId": "usr-1780155494400",
+      "title": "Appointment Request Sent",
+      "body": "Annual Physical Exam with Dr. Cindy Anticamara is waiting for admin approval.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780217067671-118",
+      "userId": "usr-1780155494400",
+      "title": "Appointment Request Sent",
+      "body": "Annual Physical Exam with Dr. Cindy Anticamara is waiting for admin approval.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780217067672-212",
+      "userId": "usr-1780155494400",
+      "title": "Appointment Request Sent",
+      "body": "General Consultation with Dr. Cindy Anticamara is waiting for admin approval.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780217067673-755",
+      "userId": "usr-1780211276793",
+      "title": "Appointment Request Sent",
+      "body": "General Consultation with Dr. Cindy Anticamara is waiting for admin approval.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780217067674-17",
+      "userId": "usr-1780212708713",
+      "title": "Appointment Request Sent",
+      "body": "X-Ray & Imaging with Dr. Cindy Anticamara is waiting for admin approval.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780217067675-829",
+      "userId": "usr-1780212708713",
+      "title": "Appointment Accepted",
+      "body": "X-Ray & Imaging with Dr. Cindy Anticamara is now confirmed.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780217067676-199",
+      "userId": "usr-1780212708713",
+      "title": "Message Sent",
+      "body": "Your message was delivered to clinic staff.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780217067678-652",
+      "userId": "usr-1780212708713",
+      "title": "New Support Reply",
+      "body": "Clinic staff replied to your chat.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780217067679-778",
+      "userId": "usr-1780212708713",
+      "title": "Message Sent",
+      "body": "Your message was delivered to clinic staff.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780217067681-163",
+      "userId": "usr-1780212708713",
+      "title": "Appointment Request Sent",
+      "body": "Blood Test & Lab Work with Dr. Shin Nuel is waiting for admin approval.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780217067682-1",
+      "userId": "usr-1780212708713",
+      "title": "Appointment Accepted",
+      "body": "Blood Test & Lab Work with Dr. Shin Nuel is now confirmed.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780217067683-249",
+      "userId": "usr-1780212708713",
+      "title": "Appointment Request Sent",
+      "body": "Vaccination with Dr. Cindy Anticamara is waiting for admin approval.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780217067685-751",
+      "userId": "usr-1780212708713",
+      "title": "Appointment Accepted",
+      "body": "Vaccination with Dr. Cindy Anticamara is now confirmed.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780217067686-843",
+      "userId": "usr-1780212708713",
+      "title": "Appointment Updated",
+      "body": "Vaccination with Dr. Cindy Anticamara is now completed.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780217067686-543",
+      "userId": "usr-1780155494400",
+      "title": "Appointment Updated",
+      "body": "Annual Physical Exam with Dr. Cindy Anticamara is now completed.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780217067687-841",
+      "userId": "usr-1780155494400",
+      "title": "Appointment Updated",
+      "body": "General Consultation with Dr. Cindy Anticamara is now completed.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780217067688-529",
+      "userId": "usr-1780155494400",
+      "title": "Appointment Updated",
+      "body": "Annual Physical Exam with Dr. Cindy Anticamara is now completed.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780217067690-657",
+      "userId": "usr-1780132993592",
+      "title": "Appointment Updated",
+      "body": "ECG & Heart Check with Dr. Erich Ulan-Ulan is now completed.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780217067691-777",
+      "userId": "usr-1780132993592",
+      "title": "Appointment Updated",
+      "body": "X-Ray & Imaging with Dr. Shin Nuel is now completed.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780217067692-145",
+      "userId": "usr-1780133731315",
+      "title": "Appointment Updated",
+      "body": "ECG & Heart Check with Dr. Cindy Anticamara is now completed.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780217067693-877",
+      "userId": "usr-1780152944434",
+      "title": "Appointment Updated",
+      "body": "General Consultation with Dr. Cindy Anticamara is now completed.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780217067694-493",
+      "userId": "usr-1780152944434",
+      "title": "Appointment Updated",
+      "body": "General Consultation with Dr. Earlyn Nasol is now completed.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780217067695-703",
+      "userId": "usr-1780155494400",
+      "title": "Appointment Updated",
+      "body": "General Consultation with Dr. Cindy Anticamara is now completed.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780217067696-215",
+      "userId": "usr-1780134370299",
+      "title": "Appointment Updated",
+      "body": "X-Ray & Imaging with Dr. Shin Nuel is now completed.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780217067697-147",
+      "userId": "usr-1780211276793",
+      "title": "Appointment Updated",
+      "body": "General Consultation with Dr. Cindy Anticamara is now completed.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780217067698-154",
+      "userId": "usr-1780212708713",
+      "title": "Appointment Updated",
+      "body": "X-Ray & Imaging with Dr. Cindy Anticamara is now completed.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780217067699-39",
+      "userId": "usr-1780212708713",
+      "title": "Appointment Updated",
+      "body": "Blood Test & Lab Work with Dr. Shin Nuel is now completed.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780217067701-315",
+      "userId": "usr-1780212708713",
+      "title": "Appointment Request Sent",
+      "body": "Specialist Referral with Dr. Earlyn Nasol is waiting for admin approval.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780217067702-997",
+      "userId": "usr-1780212708713",
+      "title": "Appointment Accepted",
+      "body": "Specialist Referral with Dr. Earlyn Nasol is now confirmed.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780217067703-586",
+      "userId": "usr-1780212708713",
+      "title": "Appointment Updated",
+      "body": "Specialist Referral with Dr. Earlyn Nasol is now completed.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780217067704-856",
+      "userId": "usr-1780212708713",
+      "title": "Message Sent",
+      "body": "Your message was delivered to clinic staff.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780217067706-433",
+      "userId": "usr-1780212708713",
+      "title": "New Support Reply",
+      "body": "Clinic staff replied to your chat.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780217067707-890",
+      "userId": "usr-1780212708713",
+      "title": "Appointment Request Sent",
+      "body": "Vaccination with Dr. Erich Ulan-Ulan is waiting for admin approval.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780217067708-958",
+      "userId": "usr-1780212708713",
+      "title": "Appointment Accepted",
+      "body": "Vaccination with Dr. Erich Ulan-Ulan is now confirmed.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780217067709-1",
+      "userId": "usr-1780212708713",
+      "title": "Appointment Updated",
+      "body": "Vaccination with Dr. Erich Ulan-Ulan is now completed.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780217067710-256",
+      "userId": "usr-1780212708713",
+      "title": "Message Sent",
+      "body": "Your message was delivered to clinic staff.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780217067713-777",
+      "userId": "usr-1780212708713",
+      "title": "New Support Reply",
+      "body": "Clinic staff replied to your chat.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780217700115",
+      "userId": "usr-1780217700115",
+      "title": "Registration Successful",
+      "body": "Welcome to MediTrack, Airon! Your account has been created successfully.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780217868077",
+      "userId": "usr-1780217868077",
+      "title": "Registration Successful",
+      "body": "Welcome to MediTrack, Chimi! Your account has been created successfully.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780232519201",
+      "userId": "usr-1780232519201",
+      "title": "Registration Successful",
+      "body": "Welcome to MediTrack, Jen! Your account has been created successfully.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780236675484",
+      "userId": "usr-1780236675484",
+      "title": "Registration Successful",
+      "body": "Welcome to MediTrack, Joanna Lois! Your account has been created successfully.",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "ntf-1780237209101",
+      "userId": "usr-1780237209101",
+      "title": "Registration Successful",
+      "body": "Welcome to MediTrack, Jen! Your account has been created successfully.",
+      "read": false,
+      "createdAt": "Just now"
+    }
+  ],
+  "messages": [
+    {
+      "id": "msg-1",
+      "userId": "usr-1",
+      "sender": "support",
+      "encryptedBody": {
+        "iv": "sKfz6yXnHojniMIe",
+        "tag": "nr4uDDf7Ku0yPS5zzJHmpQ==",
+        "data": "lsbjuhwdyrcVFIPgTobm0K8EeROQdyCZKz3/jDDg3uInFp56KNM/Sgr+obpJbpIuimAibjwgeX6CltWHM7czFIyo/Be00Iyo9r5kLYzyu19+1no="
+      },
+      "createdAt": "5/29/2026, 1:34:46 AM"
+    },
+    {
+      "id": "msg-1779989723906",
+      "userId": "usr-1",
+      "sender": "patient",
+      "encryptedBody": {
+        "iv": "/50/kPB0Olu+TT2q",
+        "tag": "MMGiNNod1hc/QNV6vTY++g==",
+        "data": "S4Oy0urx0prf4QUuz0qEOA6tnz7znRrrMA/qvQ=="
+      },
+      "createdAt": "5/29/2026, 1:35:23 AM"
+    },
+    {
+      "id": "msg-1779989724910",
+      "userId": "usr-1",
+      "sender": "support",
+      "encryptedBody": {
+        "iv": "9oCPe7oIRt6S3kBj",
+        "tag": "VDY5QbwZnXzF4IrTyxVHPg==",
+        "data": "GzwTSe1DY3xAVvebubaIVtoCvczU0wrnWoymE1ZlAwlVAiS0b1BxkQB/dTx1WcSlcjgJf8PhZGnNBmoaAaJUQxrVFne814JfIBicKqR6L+UDnhjO7XV2"
+      },
+      "createdAt": "5/29/2026, 1:35:24 AM"
+    },
+    {
+      "id": "msg-1779990044613",
+      "userId": "usr-1",
+      "sender": "patient",
+      "encryptedBody": {
+        "iv": "GsG3q/o80T/++t5U",
+        "tag": "p1Zkm5ykgngkjBMyZGfIxA==",
+        "data": "GCo="
+      },
+      "createdAt": "5/29/2026, 1:40:44 AM"
+    },
+    {
+      "id": "msg-1779990045643",
+      "userId": "usr-1",
+      "sender": "support",
+      "encryptedBody": {
+        "iv": "uMKzbi5ha8HHz/Et",
+        "tag": "8sMz6xJTDs6cfZ4tYJstRg==",
+        "data": "8mKNHtvNMjx+qiFeO6+A/j23JtxmvZOh0Y+Kr17JcGBYxrTTiA4yd9eDfTjfYprRjqsRW2gA1Xq7VeRYRzOyvAjJhTzcIB8K4CdZOB0i/Lkt7Sub69oT"
+      },
+      "createdAt": "5/29/2026, 1:40:45 AM"
+    },
+    {
+      "id": "msg-1779990126256",
+      "userId": "usr-1779990126256",
+      "sender": "support",
+      "encryptedBody": {
+        "iv": "JYvF73paG8fWjBIe",
+        "tag": "zm1NmHJemfHXpOMw3VNkTg==",
+        "data": "9K3c6GDLZbmvtXh1I/NwCRnT6OUueA7eOyix+6edsyOaM/wK3lE0FtaNZudIo2GgM6QKMxAEiswSCudgWgOwQ5h0+g5D77yE89NQas0lzCbBSp1MUA=="
+      },
+      "createdAt": "5/29/2026, 1:42:06 AM"
+    },
+    {
+      "id": "msg-1779990316109",
+      "userId": "usr-1",
+      "sender": "patient",
+      "encryptedBody": {
+        "iv": "s+Ddp1FhHft1DI/9",
+        "tag": "sAtftbobFeNWi5PqKe+kVg==",
+        "data": "vaZKUkirOxzigBk24khT9KjpjJQ="
+      },
+      "createdAt": "5/29/2026, 1:45:16 AM"
+    },
+    {
+      "id": "msg-1779990317111",
+      "userId": "usr-1",
+      "sender": "support",
+      "encryptedBody": {
+        "iv": "dqywDtcxB8uoKYxw",
+        "tag": "7q7utXRjDuPqJdsR81BFCA==",
+        "data": "3UHT8i+nArx1aJ0zYggc5i0Iol5BsSLrjn+Kc1gLCDQ4/IyEFT5ul0Ef4Vu+b6mYZoTaQtpUCI7rp4CjwWpf0TfFiv/SFzTzfIE4TkWRH1UggbnnJXlN"
+      },
+      "createdAt": "5/29/2026, 1:45:17 AM"
+    },
+    {
+      "id": "msg-1780132942786",
+      "userId": "usr-1779990126256",
+      "sender": "patient",
+      "encryptedBody": {
+        "iv": "IC92teylYh0zePS+",
+        "tag": "j2Hk+guPzXlFW9PcAIcdAw==",
+        "data": "aIU4Da4="
+      },
+      "createdAt": "5/30/2026, 5:22:22 PM"
+    },
+    {
+      "id": "msg-1780132943807",
+      "userId": "usr-1779990126256",
+      "sender": "support",
+      "encryptedBody": {
+        "iv": "JP/nBMSJdn1OOm8V",
+        "tag": "Riy9Sx8pW+f2ZbRLK97NhA==",
+        "data": "anr5+VsTyc7ahluoMddDeTi4E0fPO9MQDuzwy1X3mvVVOmYfuonv8IPfJn9L9SX12dOdULa0u6vVkDAgfRujIKQzZJLNWnV/rRCkjd8328ZFfvzL0HOx"
+      },
+      "createdAt": "5/30/2026, 5:22:23 PM"
+    },
+    {
+      "id": "msg-1780132993592",
+      "userId": "usr-1780132993592",
+      "sender": "support",
+      "encryptedBody": {
+        "iv": "PBAA1PH1WOMaRXz4",
+        "tag": "arB9Xt7oTvEI7rfa2kaRSg==",
+        "data": "Ac4qPSyeKm3zOx1VlGEu120ewlVand2N8Sfolj3LDZR5nB9NFM3TUyRlB0etGPSP+LYAHRKSM/tafnlKzVMFaEfkY1RGLVzIGDu3NFveLqlEDRo="
+      },
+      "createdAt": "5/30/2026, 5:23:13 PM"
+    },
+    {
+      "id": "msg-1780133411203",
+      "userId": "usr-1",
+      "sender": "support",
+      "encryptedBody": {
+        "iv": "ziAb3Z4ADQeei0pr",
+        "tag": "c31Tq+cXYzGvg/Vl2dx3Cw==",
+        "data": "gm9ZHhbeyGUPf23hJ3CxMw=="
+      },
+      "createdAt": "5/30/2026, 5:30:11 PM"
+    },
+    {
+      "id": "msg-1780133486238",
+      "userId": "usr-1780132993592",
+      "sender": "support",
+      "encryptedBody": {
+        "iv": "ijhghRAkL4UnoAmw",
+        "tag": "S7Q0Et85lf6Q/XMca+Q/IA==",
+        "data": "BU4="
+      },
+      "createdAt": "5/30/2026, 5:31:26 PM"
+    },
+    {
+      "id": "msg-1780133731315",
+      "userId": "usr-1780133731315",
+      "sender": "support",
+      "encryptedBody": {
+        "iv": "pZ6daC6n87pbp90r",
+        "tag": "G+fZ0QLIra/hzK+btiKkZA==",
+        "data": "CgkKsxgg9CSEu+wG0icz3I+3fdXt+c6ey95z6otUOWtSiDXqvBrSZEQrog9ZFhjmhMRdyBy7t4RGOzZVPG8AaF6s2xKXAP/DJ/NY/1534vhd5g=="
+      },
+      "createdAt": "5/30/2026, 5:35:31 PM"
+    },
+    {
+      "id": "msg-1780133803332",
+      "userId": "usr-1780133731315",
+      "sender": "patient",
+      "encryptedBody": {
+        "iv": "cDP0IwPhgT3WLxzZ",
+        "tag": "llB3Ib/Cl+WYOk/g2Y7gGA==",
+        "data": "exdpTwHcHw=="
+      },
+      "createdAt": "5/30/2026, 5:36:43 PM"
+    },
+    {
+      "id": "msg-1780133813104",
+      "userId": "usr-1780133731315",
+      "sender": "support",
+      "encryptedBody": {
+        "iv": "RPEp5dr7LyEeSj5e",
+        "tag": "h3Vmuw8g4GT7rOalBV7u8w==",
+        "data": "51pt3u9Dclon"
+      },
+      "createdAt": "5/30/2026, 5:36:53 PM"
+    },
+    {
+      "id": "msg-1780133824381",
+      "userId": "usr-1780133731315",
+      "sender": "patient",
+      "encryptedBody": {
+        "iv": "+IO6zuDkvI2Tgaqf",
+        "tag": "EjUJO1DyKZHuT3KljcGu/g==",
+        "data": "yD5vD2r89WonnYaoErM1xx7LpMuax3P/kZKchF5oAzE3Rw/+bTg="
+      },
+      "createdAt": "5/30/2026, 5:37:04 PM"
+    },
+    {
+      "id": "msg-1780133837063",
+      "userId": "usr-1780133731315",
+      "sender": "support",
+      "encryptedBody": {
+        "iv": "JwiPWm+PK5sBnCif",
+        "tag": "GXApHz+TMJe35n77d5h31A==",
+        "data": "SpNIrdU3cQsCUVzHCGqk+htRQ5NZOIVwjmPsgA=="
+      },
+      "createdAt": "5/30/2026, 5:37:17 PM"
+    },
+    {
+      "id": "msg-1780134370299",
+      "userId": "usr-1780134370299",
+      "sender": "support",
+      "encryptedBody": {
+        "iv": "LqL4fbwrM3gi9JwS",
+        "tag": "lu52xmpFh4WPPlLiGrKJmg==",
+        "data": "1s6jbU9pljTkiYrpvEU71xRoa8q4bhZso+w4zIG4kiMBMX1BV1ZweHSPZr8Lye1tGSYgMdt5v7Xh8ODHPrB5oizsoGOtGQTH/Akhsvtx9FG2F2o="
+      },
+      "createdAt": "5/30/2026, 5:46:10 PM"
+    },
+    {
+      "id": "msg-1780134454061",
+      "userId": "usr-1780134370299",
+      "sender": "patient",
+      "encryptedBody": {
+        "iv": "HO4RSJewCxrlM9S/",
+        "tag": "2zV4cOScpS5suHcZi4sPCw==",
+        "data": "h58="
+      },
+      "createdAt": "5/30/2026, 5:47:34 PM"
+    },
+    {
+      "id": "msg-1780137306729",
+      "userId": "usr-1",
+      "sender": "patient",
+      "encryptedBody": {
+        "iv": "9x/Pph4MFua9LJXU",
+        "tag": "MIpDVLgTAmEaP5lAc7tagA==",
+        "data": "pH+83Ay+9748kHsk/D1Ci3Lq1Yzj"
+      },
+      "createdAt": "5/30/2026, 6:35:06 PM"
+    },
+    {
+      "id": "msg-1780137306768-241",
+      "userId": "usr-1",
+      "sender": "support",
+      "encryptedBody": {
+        "iv": "Nz/vXTF4APotIJEX",
+        "tag": "kG/15XEAzL/jsOY64JP3UQ==",
+        "data": "FCxXTNPmgS4ibdLHsPrsIODpGnNQq8ZiXN1GZAHkVfU/Az95YFhZlb3MLDIc9k77WqWhoqA/msZD2r1AUOubKHsX1m1AOdeEwqJsrGtBKn2ZArpqNS4j"
+      },
+      "createdAt": "5/30/2026, 6:35:06 PM"
+    },
+    {
+      "id": "msg-1780142922944",
+      "userId": "usr-1780132993592",
+      "sender": "patient",
+      "encryptedBody": {
+        "iv": "+esQ3dUXR/ZYNiVI",
+        "tag": "gsnLlY/s4XKbf9vJWKw1RA==",
+        "data": "opVzr6dAojg="
+      },
+      "createdAt": "5/30/2026, 8:08:42 PM"
+    },
+    {
+      "id": "msg-1780142922968-924",
+      "userId": "usr-1780132993592",
+      "sender": "support",
+      "encryptedBody": {
+        "iv": "xxknlx749h+AR47g",
+        "tag": "tgPOIcDHGJiuQl+e/hlbBQ==",
+        "data": "bzH/9vyvdlAyhHAiBogL//O7PMbnb3xd69hsnIqn56ns2qTGtGoUjWWv52HWJIyiYZ/2e/ztmcR3Gd23kHz5OxlyV0/k8frTGEG4p893yQ66rPVb/n09"
+      },
+      "createdAt": "5/30/2026, 8:08:42 PM"
+    },
+    {
+      "id": "msg-1780142926681",
+      "userId": "usr-1780132993592",
+      "sender": "patient",
+      "encryptedBody": {
+        "iv": "y8xuQQ0uKX8jNQHN",
+        "tag": "L5JsPi1wd3aXv6jCnnj9kw==",
+        "data": "J3avUgkTfg=="
+      },
+      "createdAt": "5/30/2026, 8:08:46 PM"
+    },
+    {
+      "id": "msg-1780142926686-869",
+      "userId": "usr-1780132993592",
+      "sender": "support",
+      "encryptedBody": {
+        "iv": "SV9n5ybVkWlP7bsc",
+        "tag": "hthFq5TTgJ10H4/Dq15Jxg==",
+        "data": "//4BX5UGXCiMmnbnGbN8Um93uwNVziSjXTExiOr8T2qAtVIzD45KCNobhVestsvF96AmK957zzsCs4rJCojKG7rZLsgxV709Z1xY1mP5RzXa3YGrSFtN"
+      },
+      "createdAt": "5/30/2026, 8:08:46 PM"
+    },
+    {
+      "id": "msg-1780152488182",
+      "userId": "usr-1780132993592",
+      "sender": "patient",
+      "encryptedBody": {
+        "iv": "GAeHs0j4GN5dk2Fk",
+        "tag": "VNPbfM+ohXiZKyFXawYxEw==",
+        "data": "XBCgIB0s"
+      },
+      "createdAt": "5/30/2026, 10:48:08 PM"
+    },
+    {
+      "id": "msg-1780152944434",
+      "userId": "usr-1780152944434",
+      "sender": "support",
+      "encryptedBody": {
+        "iv": "hxa0W9rh0kNPl7aY",
+        "tag": "AlmWOqjW94M/wJP/V38rxg==",
+        "data": "4C4M0E5GusmGF8fciAL5q8lkgRQT60hhdyJck2ya6GPTwI2QsSPkFaUnbRtPHLRvbacK1tQ1ZfW00C4rVVeBNvuxXhqMAOIu0sxktuaS9mFutx8="
+      },
+      "createdAt": "5/30/2026, 10:55:44 PM"
+    },
+    {
+      "id": "msg-1780153043173",
+      "userId": "usr-1780152944434",
+      "sender": "patient",
+      "encryptedBody": {
+        "iv": "RuAlusz1HNOw7GsZ",
+        "tag": "VVmbsTL0pq8DqXiYALrjig==",
+        "data": "ZIZ4bm4="
+      },
+      "createdAt": "5/30/2026, 10:57:23 PM"
+    },
+    {
+      "id": "msg-1780153274050",
+      "userId": "usr-1780152944434",
+      "sender": "support",
+      "encryptedBody": {
+        "iv": "o9Aj9iYnvnr4Ak02",
+        "tag": "KL+lW8OW79htaJXoNMKbbg==",
+        "data": "UwU="
+      },
+      "createdAt": "5/30/2026, 11:01:14 PM"
+    },
+    {
+      "id": "msg-1780155415791",
+      "userId": "usr-1780152944434",
+      "sender": "patient",
+      "encryptedBody": {
+        "iv": "zyossJ5ZAC/lb3l2",
+        "tag": "EvmTVMOTcdsCITiAR9wq6Q==",
+        "data": "RF9PsUKH"
+      },
+      "createdAt": "5/30/2026, 11:36:55 PM"
+    },
+    {
+      "id": "msg-1780155494400",
+      "userId": "usr-1780155494400",
+      "sender": "support",
+      "encryptedBody": {
+        "iv": "dCZlL6ioGqfCFHKa",
+        "tag": "cnnr6RPRtxAMS10UF3Lnqw==",
+        "data": "390rOBFtonnBq3FklmMVq6UNXZeFDe9x1t0Pmeo3U4YP+fuzxqRHiF2ce4D+DvvlvLvu8PkYJ5teU/9RV+879igAUtUg2lrEJXjzm2VFe4WMYys="
+      },
+      "createdAt": "5/30/2026, 11:38:14 PM"
+    },
+    {
+      "id": "msg-1780155620614",
+      "userId": "usr-1780155620614",
+      "sender": "support",
+      "encryptedBody": {
+        "iv": "ZLpxWkZOo+GdifCQ",
+        "tag": "niecFptlwvGCaCPGvhT5lw==",
+        "data": "iVsVJ6s3mj2V6fR5AJJ1WLLSmAyR8oRq4d+XO7C5sGeLn9i9dJ/zPijlRz9CdRFoHc5f+HpxXrOSAfnTm0T11fZ/WTI+e55oZBgqVF+6SJ/uLtqk"
+      },
+      "createdAt": "5/30/2026, 11:40:20 PM"
+    },
+    {
+      "id": "msg-1780211276793",
+      "userId": "usr-1780211276793",
+      "sender": "support",
+      "encryptedBody": {
+        "iv": "0iRQtN4g7pK0b2uh",
+        "tag": "jPfd+HOcc6c8opUKa3AtHA==",
+        "data": "ETSdDQ6eExQlspsRU7sbHKjfCrVRuuzl0emUxmT8gIo5I+8CYKXjEr9dTFASyuJM301Mt5Nk0S40EeVNXgcSJpOMJQOyXAxsJyQmwIx2WCH5Cms="
+      },
+      "createdAt": "5/31/2026, 3:07:56 PM"
+    },
+    {
+      "id": "msg-1780212708713",
+      "userId": "usr-1780212708713",
+      "sender": "support",
+      "encryptedBody": {
+        "iv": "VYKaihO+5qEJ2XzG",
+        "tag": "093veCjpv7BFXZVlBAs6Ow==",
+        "data": "WwAgUCA+E2+dJj2uQtSfeLDta92Uv+w6gNreqCBF5GELH6JMeM9U0xNb8QkaWoZDYwLlBaUYL5G0Aak3AgBRtUqqbA3wBeOQMkVcVo881DsNTQ=="
+      },
+      "createdAt": "5/31/2026, 3:31:48 PM"
+    },
+    {
+      "id": "msg-1780212760062",
+      "userId": "usr-1780212708713",
+      "sender": "patient",
+      "encryptedBody": {
+        "iv": "VC0TlPF6S1dBHOdS",
+        "tag": "NcoI9ITENBhalNhOq+EhBg==",
+        "data": "QG2tm389PQ=="
+      },
+      "createdAt": "5/31/2026, 3:32:40 PM"
+    },
+    {
+      "id": "msg-1780212781173",
+      "userId": "usr-1780212708713",
+      "sender": "support",
+      "encryptedBody": {
+        "iv": "CY9AADvRX7guPxMF",
+        "tag": "7yMIr/cQJS6nnApHFFJtDA==",
+        "data": "wXRw/BDF"
+      },
+      "createdAt": "5/31/2026, 3:33:01 PM"
+    },
+    {
+      "id": "msg-1780212838183",
+      "userId": "usr-1780212708713",
+      "sender": "patient",
+      "encryptedBody": {
+        "iv": "Af/TQvNWYIZLE5ki",
+        "tag": "+TAI8TYfP6/6yDChgmVj+w==",
+        "data": "EI+A+g=="
+      },
+      "createdAt": "5/31/2026, 3:33:58 PM"
+    },
+    {
+      "id": "msg-1780214512115",
+      "userId": "usr-1780212708713",
+      "sender": "patient",
+      "encryptedBody": {
+        "iv": "jfJRWHZLIzvrqvUC",
+        "tag": "j4nziy3jvx20WfAVEuaG9Q==",
+        "data": "Qra+1Fc="
+      },
+      "createdAt": "5/31/2026, 4:01:52 PM"
+    },
+    {
+      "id": "msg-1780214523825",
+      "userId": "usr-1780212708713",
+      "sender": "support",
+      "encryptedBody": {
+        "iv": "+Z8YDPMvMWSm8Lyp",
+        "tag": "85T/loJRg9Fq7bLa3hB+qA==",
+        "data": "jlJh5GyjYeWHeA=="
+      },
+      "createdAt": "5/31/2026, 4:02:03 PM"
+    },
+    {
+      "id": "msg-1780216734975",
+      "userId": "usr-1780212708713",
+      "sender": "patient",
+      "encryptedBody": {
+        "iv": "jpZaOimExYJv6l1t",
+        "tag": "PT5cL7klNpj2dJWKZgHgrQ==",
+        "data": "CKE="
+      },
+      "createdAt": "5/31/2026, 4:38:54 PM"
+    },
+    {
+      "id": "msg-1780216746090",
+      "userId": "usr-1780212708713",
+      "sender": "support",
+      "encryptedBody": {
+        "iv": "HZi9cD9fyIpIPWdm",
+        "tag": "iylDNgkjolFoREhXuf79yQ==",
+        "data": "vVbWbN1A7A=="
+      },
+      "createdAt": "5/31/2026, 4:39:06 PM"
+    },
+    {
+      "id": "msg-1780217067642-753",
+      "userId": "usr-1780132993592",
+      "sender": "support",
+      "encryptedBody": {
+        "iv": "4s+NhADRp/8lPJM/",
+        "tag": "8aXJ9TaPN3/PUPHCXIqkOA==",
+        "data": "1dxmXb8wxG+L70p12ko5xgVxkIrXa3vGygn8+KlE76vz3M3WDF90MBgY4q+KRBye1sa7pD1QOP7hh+7U/6l/A6cUwM36I1osHSR0shXAUocKtRSSPRTE"
+      },
+      "createdAt": "5/31/2026, 4:44:27 PM"
+    },
+    {
+      "id": "msg-1780217067661-760",
+      "userId": "usr-1780152944434",
+      "sender": "support",
+      "encryptedBody": {
+        "iv": "233z/p8tt8TfJotP",
+        "tag": "tirkeqqvNmm77fdCxqZG9g==",
+        "data": "eZFeiGuImG9FOBPtSplo3a159fSW6j2lui94oT8PK9ePywWuWUJKlc5GVolSfyYSZOcD1Hq3LoKMO6oeSR1CVtbJcKyXuGSbmmDIBn5Rin87Xm7Fotgs"
+      },
+      "createdAt": "5/31/2026, 4:44:27 PM"
+    },
+    {
+      "id": "msg-1780217067667-609",
+      "userId": "usr-1780152944434",
+      "sender": "support",
+      "encryptedBody": {
+        "iv": "XT3G1tbv+N+qxzGC",
+        "tag": "i5uG7coohflrSts8cgSEEQ==",
+        "data": "TZKMipjPmaAUlNsF+ek2c+ad1AKNESsd4MLhIk0GKonBkAOwihbXRz8d+OYYU+9NPxNMeqGqpeAJhGeGXk46N/epZHeF4RcUFVXoz8JENiUm6SuBeJcJ"
+      },
+      "createdAt": "5/31/2026, 4:44:27 PM"
+    },
+    {
+      "id": "msg-1780217067676-31",
+      "userId": "usr-1780212708713",
+      "sender": "support",
+      "encryptedBody": {
+        "iv": "f12r32wFIp74PPPQ",
+        "tag": "nLeAGl0ILQ8bWXq68H3yaQ==",
+        "data": "OaKG9B5wuUF4DwqPf8nLuiEFxyKZBF6/FdamuVgqFm6EgBfWaHHUJJC5VXhoStpiC0NhUmQfRKA/tjsL+h6LQ3tYGY2655+TixQahSIlPONqg+b6XFHj"
+      },
+      "createdAt": "5/31/2026, 4:44:27 PM"
+    },
+    {
+      "id": "msg-1780217067680-479",
+      "userId": "usr-1780212708713",
+      "sender": "support",
+      "encryptedBody": {
+        "iv": "wQIZDalh6WcV9i95",
+        "tag": "5QNbwZSTSl8AJWo0ppaLTA==",
+        "data": "0ynYN4f6ZTMBPoTWoeCWZDqhSuf8ZCah/h7BtOVRy5lz+fzrwJOOoC32hnupGAX3GxIaBg63vJ8xiwAwMDtOiAwYgHWuSZbNx6dpUlqC6w/PYEVTlMv1"
+      },
+      "createdAt": "5/31/2026, 4:44:27 PM"
+    },
+    {
+      "id": "msg-1780217067705-689",
+      "userId": "usr-1780212708713",
+      "sender": "support",
+      "encryptedBody": {
+        "iv": "bIYqfyDiB3R+wHKz",
+        "tag": "NqCO5r7GV98Ug2wEQ7yBaA==",
+        "data": "4+8MugOnn+UulYFsesWKJD9T2gViNTrB+xvj1gdn5ATPfhCG1XSFYyjN93JRp+BFuvu0ZG7oD2qwR8QKZOn2wT+PFhs18SdIKYXMbNfUbgitp4ReLwR/"
+      },
+      "createdAt": "5/31/2026, 4:44:27 PM"
+    },
+    {
+      "id": "msg-1780217067712-80",
+      "userId": "usr-1780212708713",
+      "sender": "support",
+      "encryptedBody": {
+        "iv": "sDWNys9Rb0Q1b27W",
+        "tag": "pm+O1s1zJ42rdTwGUF/RdA==",
+        "data": "9v6VjZJx6Nu3M/9lHyCyQ0jaagGYzWa1KrrZbXPASMhJlPzCjkr9yAGHujP11K0bFDzZCfmr7ly9MLX163HhFfqC0kN//VViBSSKgqoaY8UbjxA5h1Qo"
+      },
+      "createdAt": "5/31/2026, 4:44:27 PM"
+    },
+    {
+      "id": "msg-1780217700115",
+      "userId": "usr-1780217700115",
+      "sender": "support",
+      "encryptedBody": {
+        "iv": "aWyANOKnnSHD8hIx",
+        "tag": "pVKEllY4cMXiXKlXPZRwmA==",
+        "data": "TOk5kwfo8RIw6RYca3dlSL1AZ1e5MrZr89Y+YubzXCDHeTrdqRQnEV7FX+OLT8B5Ah5ODTUkbw1epuccD/KdR2XZR9zbIqamS3wn7BCQMPUytCY="
+      },
+      "createdAt": "5/31/2026, 4:55:00 PM"
+    },
+    {
+      "id": "msg-1780217868077",
+      "userId": "usr-1780217868077",
+      "sender": "support",
+      "encryptedBody": {
+        "iv": "F6YythMNi4QqBUO0",
+        "tag": "QMpWrdZYuvNxIEd4+t9HtA==",
+        "data": "TSflWzIjIehGKx+2SY8A8j5/VpiBbQZfMZIPEgY+j+bKWDKSimQ8OsnBGiyJvIrK0NVAeRp2Mv4fjumjW5HHq/CPliL5s5spQEWiVImvdGjHSY8="
+      },
+      "createdAt": "5/31/2026, 4:57:48 PM"
+    },
+    {
+      "id": "msg-1780217911032",
+      "userId": "usr-1780217868077",
+      "sender": "support",
+      "encryptedBody": {
+        "iv": "3lynWIQSssXQHUTe",
+        "tag": "8w8FCIMgNgSNVB6867ocbQ==",
+        "data": "5u2dCz8="
+      },
+      "createdAt": "5/31/2026, 4:58:31 PM"
+    },
+    {
+      "id": "msg-1780217916399",
+      "userId": "usr-1780217868077",
+      "sender": "support",
+      "encryptedBody": {
+        "iv": "S8OOF2D4ThqV6kf9",
+        "tag": "d9W/r2xEJR7ohlz9AJ1frA==",
+        "data": "j7N/4YT07A=="
+      },
+      "createdAt": "5/31/2026, 4:58:36 PM"
+    },
+    {
+      "id": "msg-1780217948889",
+      "userId": "usr-1780217868077",
+      "sender": "patient",
+      "encryptedBody": {
+        "iv": "KuSrnT3aKs3/n4hA",
+        "tag": "jVY/0MHcX/nE22wN9jT7Yg==",
+        "data": "Nw8MTRM="
+      },
+      "createdAt": "5/31/2026, 4:59:08 PM"
+    },
+    {
+      "id": "msg-1780217956501",
+      "userId": "usr-1780217868077",
+      "sender": "patient",
+      "encryptedBody": {
+        "iv": "fwVEeiatjr6Xska0",
+        "tag": "GUHbvoCu/IFIPyEhBOWQcA==",
+        "data": "y5B6h7ucHc5cg8sN7FY="
+      },
+      "createdAt": "5/31/2026, 4:59:16 PM"
+    },
+    {
+      "id": "msg-1780232519201",
+      "userId": "usr-1780232519201",
+      "sender": "support",
+      "encryptedBody": {
+        "iv": "T3tJputB1YE3FXX9",
+        "tag": "2dtWFeYDSEpSPPN/uDKMxw==",
+        "data": "4/+TN/jkUadj3PWFaaoh5G4GhGd0bhNGuYH7lWpYI50qOqZljjfSfRl3OzbhkdV8GpqUXp9x6G1tSw4wi4Jrcfzq1LDujC4/v0pBaV1p0W0a"
+      },
+      "createdAt": "5/31/2026, 9:01:59 PM"
+    },
+    {
+      "id": "msg-1780232586980",
+      "userId": "usr-1780232519201",
+      "sender": "patient",
+      "encryptedBody": {
+        "iv": "1OYlHHPYRBLkGE0N",
+        "tag": "qCbpjyOJdA8xB6WZpZNOhg==",
+        "data": "Iec="
+      },
+      "createdAt": "5/31/2026, 9:03:06 PM"
+    },
+    {
+      "id": "msg-1780236675484",
+      "userId": "usr-1780236675484",
+      "sender": "support",
+      "encryptedBody": {
+        "iv": "JyCY4LgpoGh0TxBJ",
+        "tag": "a//cffT2J7EEMjwaVGGcBA==",
+        "data": "40hlyj1nIfnu8EFEsfmyXu5l4qmRhZ+hMrEaSvksrOF2wrKlSeD+NkHqQnjTnboFQy+/5HsDFX/gtJIP3XF3efvMv4Bm4PpP+EXAvG/1FlL5VgaCDBnqon4="
+      },
+      "createdAt": "5/31/2026, 10:11:15 PM"
+    },
+    {
+      "id": "msg-1780237209101",
+      "userId": "usr-1780237209101",
+      "sender": "support",
+      "encryptedBody": {
+        "iv": "HdL8XApuTc+PRD8Q",
+        "tag": "KTnFo7J+/3o/8uSC587/Mw==",
+        "data": "Vf/jfgO+2Nb7d8WSryaWMuqYLJmw5dKiEQBO1j+8DIRlHMTZ/HpZBYUl8rk4aDMKZbsBil5WGebU0KaesWByq3rpe30q0D+1iYZRGMXi8Hbv"
+      },
+      "createdAt": "5/31/2026, 10:20:09 PM"
+    },
+    {
+      "id": "msg-1780237699432",
+      "userId": "usr-1780232519201",
+      "sender": "support",
+      "encryptedBody": {
+        "iv": "MikS41kVkGC9BxX7",
+        "tag": "PFYsAGsAbhTqN+/VY+XtqA==",
+        "data": "bNCNBgTLEg=="
+      },
+      "createdAt": "5/31/2026, 10:28:19 PM"
+    },
+    {
+      "id": "msg-1780237761543",
+      "userId": "usr-1780237209101",
+      "sender": "patient",
+      "encryptedBody": {
+        "iv": "NTvDI7Q8jTAofr/I",
+        "tag": "Sq2B+7PydR1cW+iVj4zf/Q==",
+        "data": "KeGwgxsaTj94Uphvtlrl"
+      },
+      "createdAt": "5/31/2026, 10:29:21 PM"
+    },
+    {
+      "id": "msg-1780237783821",
+      "userId": "usr-1780237209101",
+      "sender": "support",
+      "encryptedBody": {
+        "iv": "kkpm40sPhbtODwlC",
+        "tag": "uKGYyRpuit9EmTmnBiyk0Q==",
+        "data": "JM9KMeka"
+      },
+      "createdAt": "5/31/2026, 10:29:43 PM"
+    },
+    {
+      "id": "msg-1780237806369",
+      "userId": "usr-1780237209101",
+      "sender": "support",
+      "encryptedBody": {
+        "iv": "Ev14nHB8bAlzET3N",
+        "tag": "+JQPG5Oy6zVHH4a8zCW3zQ==",
+        "data": "D+XQgGRXpOyXIvoGwZFvAG71OFyRFAcQO2U3TfZmN5Sc+dRz/w=="
+      },
+      "createdAt": "5/31/2026, 10:30:06 PM"
+    },
+    {
+      "id": "msg-1780237831278",
+      "userId": "usr-1780237209101",
+      "sender": "support",
+      "encryptedBody": {
+        "iv": "2uQVcbDzJDuaUnTh",
+        "tag": "SUN0wcu0gwzB6OBl/fB1dQ==",
+        "data": "bZJYft3itqui9ZAiM4zXzIKHtQ=="
+      },
+      "createdAt": "5/31/2026, 10:30:31 PM"
+    },
+    {
+      "id": "msg-1780237882016",
+      "userId": "usr-1780237209101",
+      "sender": "patient",
+      "encryptedBody": {
+        "iv": "uuKLt+1kTuJJ0m2t",
+        "tag": "x+hqy7ZxlhyEKnpGLfX2/g==",
+        "data": "qdiE2iQn+zEL5tRK3Bk5y4Z5opZzDKTXGhSfFoeHqXU3MS+0gqW0veWrqZLAJuvYgQUbZNQsAOovjpAKkk9dzRC+YTpVjdRMX+/CzfI="
+      },
+      "createdAt": "5/31/2026, 10:31:22 PM"
+    },
+    {
+      "id": "msg-1780238187482",
+      "userId": "usr-1780237209101",
+      "sender": "support",
+      "encryptedBody": {
+        "iv": "H5zlvFbEZQyNJzhp",
+        "tag": "nipfWIeoJhDyOdxGSg6w+Q==",
+        "data": "jEzi8GOzQaEFHLZjXKpS5+JV7fCbSAJGvcAcuma/slKrwkOq/PvBHJr+Z1NgCzfBi6goXQ6oNfSB"
+      },
+      "createdAt": "5/31/2026, 10:36:27 PM"
+    },
+    {
+      "id": "msg-1780238197069",
+      "userId": "usr-1780237209101",
+      "sender": "support",
+      "encryptedBody": {
+        "iv": "J6Co1sGFV8A1ssoq",
+        "tag": "cwyGrsUSBHRNxvZ4nUpX/w==",
+        "data": "wR1i0HWT1tKqB8v6o07meYHTLBossLc0YvuByEgJBNAJl0ORgFMNIKxKgwnkvpRA6705odcqtKIOGwkE/fzweF0n3NrnE5d+LXCekgyL/f5MAdmFNEXV7nVOWqDzYQKPo/QJElM="
+      },
+      "createdAt": "5/31/2026, 10:36:37 PM"
+    }
+  ]
+}

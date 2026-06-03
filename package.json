@@ -1,0 +1,23 @@
+{
+  "name": "meditrack",
+  "version": "1.0.0",
+  "description": "Web-based MediTrack clinic application with async messaging, XML import/export, and encrypted chat storage.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "worker": "node worker.js"
+  },
+  "keywords": [
+    "clinic",
+    "appointments",
+    "xml",
+    "encryption"
+  ],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "amqplib": "^0.10.5"
+  }
+}

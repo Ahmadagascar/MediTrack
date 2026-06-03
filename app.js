@@ -1153,7 +1153,7 @@ function adminChat() {
           <span class="admin-encrypted">Messages are encrypted</span>
         </div>
         <div class="admin-message-list" id="messageList">
-          ${state.adminMessages.map(adminMessageBubble).join("")}
+          ${state.adminMessages.map(message => adminMessageBubble(message, active?.name)).join("")}
         </div>
         <form class="admin-composer" id="adminMessageForm">
           <input name="body" placeholder="Reply as clinic staff..." required autocomplete="off" ${state.activePatientId ? "" : "disabled"}>
@@ -1166,10 +1166,11 @@ function adminChat() {
   if (list) list.scrollTop = list.scrollHeight;
 }
 
-function adminMessageBubble(message) {
+function adminMessageBubble(message, patientName = "Patient") {
+  const senderName = message.sender === "support" ? "Clinic Staff" : patientName;
   return html`
     <div class="admin-bubble ${message.sender === "support" ? "staff" : ""}">
-      <strong>${message.sender === "support" ? "Clinic Staff" : "Patient"}</strong>
+      <strong>${escapeHtml(senderName)}</strong>
       <p>${escapeHtml(message.body)}</p>
       <span class="subtle">${escapeHtml(message.createdAt)}</span>
     </div>

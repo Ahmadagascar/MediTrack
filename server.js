@@ -237,6 +237,23 @@ function patientName(store, userId) {
   return user ? user.name : "Unknown Patient";
 }
 
+function addNotification(store, userId, title, body) {
+  store.notifications.push({
+    id: `ntf-${Date.now()}-${Math.floor(Math.random() * 1000)}`,
+    userId,
+    title,
+    body,
+    read: false,
+    createdAt: "Just now"
+  });
+}
+
+function notifyAdmins(store, title, body) {
+  store.users
+    .filter(user => user.role === "admin")
+    .forEach(admin => addNotification(store, admin.id, title, body));
+}
+
 function queueEvent(routingKey, payload) {
   publishEvent(routingKey, payload).catch(error => {
     console.error(`RabbitMQ publish failed for ${routingKey}:`, error.message);
@@ -516,10 +533,13 @@ async function api(req, res) {
         return;
       }
       store.messages.push(encryptedMessage(`msg-${Date.now()}`, body.userId, "support", body.body));
+      addNotification(
+        store,
+        body.userId,
+        "New Support Reply",
+        "Clinic staff replied to your chat."
+      );
       writeStore(store);
-      queueEvent("chat.supportReply", {
-        userId: body.userId
-      });
       sendJson(res, 201, { ok: true });
       return;
     }
@@ -595,10 +615,12 @@ async function api(req, res) {
     if (req.method === "POST" && url.pathname === "/api/messages") {
       const body = await jsonBody(req);
       store.messages.push(encryptedMessage(`msg-${Date.now()}`, user.id, "patient", body.body));
+      notifyAdmins(
+        store,
+        "New Patient Message",
+        `${user.name} sent a chat message.`
+      );
       writeStore(store);
-      queueEvent("chat.patientMessage", {
-        userId: user.id
-      });
       queueEvent("chat.autoReply", {
         userId: user.id
       });

@@ -197,12 +197,14 @@ async function loadData() {
   state.user = me.user;
   state.doctorStatuses = doctorStatusData.doctorStatuses || {};
   if (state.user.role === "admin") {
-    const [appointments, conversations] = await Promise.all([
+    const [appointments, conversations, notifications] = await Promise.all([
       request("/api/admin/appointments"),
-      request("/api/admin/conversations")
+      request("/api/admin/conversations"),
+      request("/api/notifications")
     ]);
     state.adminAppointments = appointments.appointments;
     state.adminConversations = conversations.conversations;
+    state.notifications = notifications.notifications;
     if (!state.activePatientId && state.adminConversations.length) {
       state.activePatientId = state.adminConversations[0].id;
     }
@@ -680,17 +682,22 @@ function messageBubble(message) {
   `;
 }
 
+function unreadNotificationCount() {
+  return state.notifications.filter(item => !item.read).length;
+}
+
 function adminDashboard() {
   const counts = adminStatusCounts();
   const totalPatients = adminPatients().length;
   const completed = state.adminAppointments.filter(item => item.status === "confirmed").length;
+  const unread = unreadNotificationCount();
   shell(html`
     <div class="admin-page-head">
       <div>
         <h1>Good morning, Admin</h1>
         <p>Here's what's happening today at MediTrack</p>
       </div>
-      <button class="admin-bell" type="button" data-view="adminAppointments">!</button>
+      <button class="admin-bell" type="button" data-view="adminChat">!${unread ? `<span>${unread}</span>` : ""}</button>
     </div>
     <div class="admin-feature-grid">
       ${adminFeatureCard("P", totalPatients || 1284, "Total Patients", "+12% this month", "pink")}
@@ -1216,6 +1223,10 @@ function logout() {
 document.addEventListener("click", async event => {
   const view = event.target.closest("[data-view]")?.dataset.view;
   if (view) {
+    if (view === "adminChat" && state.user?.role === "admin") {
+      await request("/api/notifications/read", { method: "POST", body: "{}" });
+      state.notifications = state.notifications.map(item => ({ ...item, read: true }));
+    }
     setView(view);
     return;
   }
@@ -1483,6 +1494,16 @@ document.addEventListener("submit", async event => {
 });
 
 setInterval(async () => {
+  if (state.token) {
+    const notificationData = await request("/api/notifications");
+    const previousUnread = unreadNotificationCount();
+    const nextUnread = notificationData.notifications.filter(item => !item.read).length;
+    state.notifications = notificationData.notifications;
+    if (nextUnread > previousUnread && state.notifications[0]) {
+      toast(state.notifications[0].title);
+      if (state.user?.role === "admin" && state.view === "adminDashboard") adminDashboard();
+    }
+  }
   if (state.token && state.view === "chat") {
     const data = await request("/api/messages");
     if (data.messages.length !== state.messages.length) {

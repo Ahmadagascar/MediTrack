@@ -75,26 +75,6 @@ async function handleEvent(event) {
     console.log(`Queued status notification for appointment ${event.appointmentId}`);
   }
 
-  if (event.eventType === "chat.patientMessage") {
-    addNotification(
-      store,
-      event.userId,
-      "Message Sent",
-      "Your message was delivered to clinic staff."
-    );
-    console.log(`Queued patient chat event for ${event.userId}`);
-  }
-
-  if (event.eventType === "chat.supportReply") {
-    addNotification(
-      store,
-      event.userId,
-      "New Support Reply",
-      "Clinic staff replied to your chat."
-    );
-    console.log(`Queued support reply notification for ${event.userId}`);
-  }
-
   if (event.eventType === "chat.autoReply") {
     store.messages.push(encryptedMessage(
       `msg-${Date.now()}-${Math.floor(Math.random() * 1000)}`,

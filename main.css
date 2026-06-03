@@ -1546,12 +1546,28 @@ textarea:focus {
 }
 
 .admin-bell {
+  position: relative;
   width: 42px;
   height: 42px;
   border-radius: 50%;
   background: #fff;
   color: #f42b95;
   box-shadow: 0 1px 4px rgba(40, 40, 40, 0.08);
+}
+
+.admin-bell span {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  min-width: 20px;
+  height: 20px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  background: #f42b95;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
 }
 
 .admin-feature-grid {

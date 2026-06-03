@@ -823,6 +823,22 @@ textarea:focus {
   box-shadow: 0 0 0 3px rgba(201, 21, 99, 0.16);
 }
 
+.select-card.session .pill {
+  background: #fff8a8;
+  color: #7a5f00;
+}
+
+.select-card.unavailable {
+  border-color: #d0d5dd;
+  background: #f2f4f7;
+  color: #667085;
+}
+
+.select-card.unavailable .pill {
+  background: #e4e7ec;
+  color: #667085;
+}
+
 .pill {
   display: inline-flex;
   margin-top: 8px;

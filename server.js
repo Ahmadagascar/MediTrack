@@ -81,7 +81,13 @@ function seedStore() {
     ],
     messages: [
       encryptedMessage("msg-1", "usr-1", "support", "Welcome to MediTrack, Airon! Feel free to message us for any appointment inquiries.")
-    ]
+    ],
+    doctorStatuses: {
+      "doc-1": "available",
+      "doc-2": "session",
+      "doc-3": "available",
+      "doc-4": "unavailable"
+    }
   };
 }
 
@@ -112,6 +118,15 @@ function readStore() {
       role: "admin",
       passwordHash: hashPassword("admin123")
     });
+    changed = true;
+  }
+  if (!store.doctorStatuses) {
+    store.doctorStatuses = {
+      "doc-1": "available",
+      "doc-2": "session",
+      "doc-3": "available",
+      "doc-4": "unavailable"
+    };
     changed = true;
   }
   if (changed) writeStore(store);
@@ -357,6 +372,30 @@ async function api(req, res) {
 
     if (req.method === "GET" && url.pathname === "/api/me") {
       sendJson(res, 200, { user: publicUser(user) });
+      return;
+    }
+
+    if (req.method === "GET" && url.pathname === "/api/doctor-statuses") {
+      sendJson(res, 200, { doctorStatuses: store.doctorStatuses || {} });
+      return;
+    }
+
+    if (req.method === "POST" && url.pathname === "/api/admin/doctor-statuses") {
+      const admin = requireAdmin(req, res, store);
+      if (!admin) return;
+      const body = await jsonBody(req);
+      if (!doctors[body.doctorId]) {
+        sendJson(res, 404, { error: "Doctor not found" });
+        return;
+      }
+      if (!["available", "session", "unavailable"].includes(body.status)) {
+        sendJson(res, 400, { error: "Invalid doctor status" });
+        return;
+      }
+      store.doctorStatuses = store.doctorStatuses || {};
+      store.doctorStatuses[body.doctorId] = body.status;
+      writeStore(store);
+      sendJson(res, 200, { doctorStatuses: store.doctorStatuses });
       return;
     }
 

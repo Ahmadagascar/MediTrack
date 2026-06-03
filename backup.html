@@ -35,7 +35,7 @@
       appointments: [],
       conversations: [],
       messages: [],
-      doctorStatus: JSON.parse(localStorage.getItem("doctorStatus") || "{}"),
+      doctorStatus: {},
       activeRecordId: "",
       activePatientId: localStorage.getItem("activePatientId") || "",
       servingId: localStorage.getItem("servingAppointmentId") || "",
@@ -114,7 +114,14 @@
     }
 
     function doctorCurrentStatus(doctor) {
-      return state.doctorStatus[doctor.id] || doctor.status;
+      return displayDoctorStatus(state.doctorStatus[doctor.id]) || doctor.status;
+    }
+
+    function displayDoctorStatus(status) {
+      if (status === "available") return "Available";
+      if (status === "session") return "On Session";
+      if (status === "unavailable") return "Unavailable";
+      return status;
     }
 
     async function loadAdminData() {
@@ -124,12 +131,14 @@
       if (state.user.role !== "admin") {
         throw new Error("Admin access is required");
       }
-      const [appointmentData, conversationData] = await Promise.all([
+      const [appointmentData, conversationData, statusData] = await Promise.all([
         request("/api/admin/appointments"),
-        request("/api/admin/conversations")
+        request("/api/admin/conversations"),
+        request("/api/doctor-statuses")
       ]);
       state.appointments = appointmentData.appointments;
       state.conversations = conversationData.conversations;
+      state.doctorStatus = statusData.doctorStatuses || {};
       if (!state.activeRecordId && state.appointments.length) {
         state.activeRecordId = state.appointments[0].id;
       }
@@ -467,8 +476,12 @@
             <div><dt>Email</dt><dd>${escapeHtml(doctor.email)}</dd></div>
           </dl>
           <div class="segmented">
-            ${["Available", "On Session", "Unavailable"].map(status => `
-              <button class="${current === status ? "active" : ""}" data-doctor-id="${doctor.id}" data-doctor-status="${status}" type="button">${status}</button>
+            ${[
+              ["available", "Available"],
+              ["session", "On Session"],
+              ["unavailable", "Unavailable"]
+            ].map(([status, label]) => `
+              <button class="${current === label ? "active" : ""}" data-doctor-id="${doctor.id}" data-doctor-status="${status}" type="button">${label}</button>
             `).join("")}
           </div>
         </article>
@@ -746,16 +759,31 @@
 
       const doctorButton = event.target.closest("[data-doctor-status]");
       if (doctorButton) {
-        state.doctorStatus[doctorButton.dataset.doctorId] = doctorButton.dataset.doctorStatus;
-        localStorage.setItem("doctorStatus", JSON.stringify(state.doctorStatus));
+        const data = await request("/api/admin/doctor-statuses", {
+          method: "POST",
+          body: JSON.stringify({
+            doctorId: doctorButton.dataset.doctorId,
+            status: doctorButton.dataset.doctorStatus
+          })
+        });
+        state.doctorStatus = data.doctorStatuses || state.doctorStatus;
         toast("Doctor status updated");
         doctorsView();
         return;
       }
 
       if (event.target.closest("[data-reset-doctors]")) {
-        state.doctorStatus = {};
-        localStorage.removeItem("doctorStatus");
+        const defaults = {
+          "doc-1": "available",
+          "doc-2": "session",
+          "doc-3": "available",
+          "doc-4": "unavailable"
+        };
+        await Promise.all(Object.entries(defaults).map(([doctorId, status]) => request("/api/admin/doctor-statuses", {
+          method: "POST",
+          body: JSON.stringify({ doctorId, status })
+        })));
+        state.doctorStatus = defaults;
         toast("Doctor statuses reset");
         doctorsView();
         return;

@@ -257,7 +257,11 @@
     "46cb2b5817ac5cd249e08d2e4e8294331f558ee439f2426a8fade4146ce02257": "adm-1",
     "4a524e8023fa303cf9e48292bb73e47ade69b8ed13819bdf9cef5d05fd62dd23": "usr-1780237209101",
     "6dc3c40c0704b3b8a80930accab96fc20314e47f68236ecc9abc0041976d7894": "adm-1",
-    "7824c4925ef6e425ae8070343ebe309c036c8aa01ae7102794dfaa76ba3a26f0": "usr-1780212708713"
+    "7824c4925ef6e425ae8070343ebe309c036c8aa01ae7102794dfaa76ba3a26f0": "usr-1780212708713",
+    "22a2b6f8722d8a414aa0a0320377ab1f8615b3ea22b28f2bf15993ae73aacd7e": "adm-1",
+    "6095bbd2b39b184387186a59df0e0b1f3fff2b399e106af5f6be9ae5a2b03c5b": "adm-1",
+    "2314666327977b6d3ea34e160f3c79890c96737fd0d95518ccf51c769496f9a3": "adm-1",
+    "e037f78a29e4bd52b7240d9fbcca5fcd95a40123dfd33e76c3dd046732225fb2": "usr-1780132993592"
   },
   "appointments": [
     {
@@ -1937,5 +1941,11 @@
       },
       "createdAt": "5/31/2026, 10:36:37 PM"
     }
-  ]
+  ],
+  "doctorStatuses": {
+    "doc-1": "session",
+    "doc-2": "session",
+    "doc-3": "available",
+    "doc-4": "unavailable"
+  }
 }

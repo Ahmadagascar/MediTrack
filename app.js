@@ -14,7 +14,7 @@ const state = {
   adminAppointmentFilter: "all",
   adminSearch: "",
   selectedAdminPatientId: "",
-  doctorStatuses: JSON.parse(localStorage.getItem("doctorStatuses") || "{}"),
+  doctorStatuses: {},
   queuePointer: Number(localStorage.getItem("queuePointer") || "0"),
   booking: {
     doctorId: "",
@@ -190,8 +190,12 @@ function registerFields() {
 
 async function loadData() {
   if (!state.token) return;
-  const me = await request("/api/me");
+  const [me, doctorStatusData] = await Promise.all([
+    request("/api/me"),
+    request("/api/doctor-statuses")
+  ]);
   state.user = me.user;
+  state.doctorStatuses = doctorStatusData.doctorStatuses || {};
   if (state.user.role === "admin") {
     const [appointments, conversations] = await Promise.all([
       request("/api/admin/appointments"),
@@ -333,6 +337,9 @@ function dashboardStat(icon, label, value, hint) {
 }
 
 function appointments() {
+  if (state.booking.doctorId && currentDoctorStatus(state.booking.doctorId) === "unavailable") {
+    state.booking.doctorId = "";
+  }
   const selectedDoctor = doctors.find(item => item.id === state.booking.doctorId);
   shell(html`
     <div class="booking-page">
@@ -428,14 +435,17 @@ function summaryLine(label, value) {
 }
 
 function selectCard(type, value, title, subtitle, meta) {
+  const doctorStatus = type === "doctor" ? currentDoctorStatus(value) : "";
+  const disabled = type === "doctor" && doctorStatus === "unavailable";
+  const displayMeta = type === "doctor" ? doctorStatusLabel(doctorStatus) : meta;
   const selected = (type === "doctor" && state.booking.doctorId === value) ||
     (type === "service" && state.booking.service === value) ||
     (type === "time" && state.booking.time === value);
   return html`
-    <button class="select-card ${selected ? "selected" : ""}" data-select="${type}" data-value="${escapeHtml(value)}" type="button">
+    <button class="select-card ${type === "doctor" ? doctorStatus : ""} ${selected ? "selected" : ""}" data-select="${type}" data-value="${escapeHtml(value)}" type="button" ${disabled ? "disabled" : ""}>
       <strong>${escapeHtml(title)}</strong>
       <p class="subtle">${escapeHtml(subtitle)}</p>
-      ${meta ? `<span class="pill">${escapeHtml(meta)}</span>` : ""}
+      ${displayMeta ? `<span class="pill">${escapeHtml(displayMeta)}</span>` : ""}
     </button>
   `;
 }
@@ -814,6 +824,12 @@ function doctorProfiles() {
 
 function currentDoctorStatus(id) {
   return state.doctorStatuses[id] || (id === "doc-2" ? "session" : id === "doc-4" ? "unavailable" : "available");
+}
+
+function doctorStatusLabel(status) {
+  if (status === "session") return "In session";
+  if (status === "unavailable") return "Unavailable";
+  return "Free now";
 }
 
 function doctorStatusBadge(status) {
@@ -1252,8 +1268,14 @@ document.addEventListener("click", async event => {
 
   const doctorStatusAction = event.target.closest("[data-doctor-status]");
   if (doctorStatusAction) {
-    state.doctorStatuses[doctorStatusAction.dataset.doctorId] = doctorStatusAction.dataset.doctorStatus;
-    localStorage.setItem("doctorStatuses", JSON.stringify(state.doctorStatuses));
+    const data = await request("/api/admin/doctor-statuses", {
+      method: "POST",
+      body: JSON.stringify({
+        doctorId: doctorStatusAction.dataset.doctorId,
+        status: doctorStatusAction.dataset.doctorStatus
+      })
+    });
+    state.doctorStatuses = data.doctorStatuses || state.doctorStatuses;
     toast("Doctor status updated");
     adminDoctors();
     return;

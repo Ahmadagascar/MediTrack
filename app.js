@@ -248,24 +248,26 @@ function shell(content) {
 }
 
 function patientNav() {
+  const unread = unreadNotificationCount();
   return [
     navButton("dashboard", navIcon("pulse"), "Dashboard"),
     navButton("appointments", navIcon("calendar"), "Book Appointment"),
     navButton("queue", navIcon("clock"), "Queue Monitor"),
     navButton("records", navIcon("book"), "My Record"),
-    navButton("notifications", navIcon("bell"), "Notification"),
+    navButton("notifications", navIcon("bell"), "Notification", unread),
     navButton("chat", navIcon("chat"), "Chat Support")
   ].join("");
 }
 
 function adminNav() {
+  const unread = unreadNotificationCount();
   return [
     navButton("adminDashboard", "D", "Dashboard"),
     navButton("adminAppointments", "A", "Appointments"),
     navButton("adminQueue", "Q", "Queue Monitor"),
     navButton("adminDoctors", "S", "Doctor Monitor"),
     navButton("adminRecords", "R", "Patients Record"),
-    navButton("adminChat", "C", "Chat Support")
+    navButton("adminChat", "C", "Chat Support", unread)
   ].join("");
 }
 
@@ -273,8 +275,15 @@ function initials(name) {
   return name.split(" ").map(part => part[0]).join("").slice(0, 2).toUpperCase();
 }
 
-function navButton(view, icon, label) {
-  return `<button data-view="${view}" class="${state.view === view ? "active" : ""}" type="button"><span>${icon}</span>${label}</button>`;
+function navButton(view, icon, label, badgeCount = 0) {
+  const count = Number(badgeCount) || 0;
+  return html`
+    <button data-view="${view}" class="${state.view === view ? "active" : ""}" type="button">
+      <span class="nav-icon">${icon}</span>
+      <span class="nav-label">${escapeHtml(label)}</span>
+      <span class="nav-badge" data-nav-badge="${view}" ${count ? "" : "hidden"}>${count}</span>
+    </button>
+  `;
 }
 
 function navIcon(name) {
@@ -686,6 +695,21 @@ function unreadNotificationCount() {
   return state.notifications.filter(item => !item.read).length;
 }
 
+function syncNotificationBadges() {
+  const unread = unreadNotificationCount();
+  const badgeViews = state.user?.role === "admin" ? ["adminChat"] : ["notifications"];
+  badgeViews.forEach(view => {
+    document.querySelectorAll(`[data-nav-badge="${view}"]`).forEach(badge => {
+      badge.textContent = unread;
+      badge.hidden = unread === 0;
+    });
+  });
+  document.querySelectorAll(".admin-bell span").forEach(badge => {
+    badge.textContent = unread;
+    badge.hidden = unread === 0;
+  });
+}
+
 function adminDashboard() {
   const counts = adminStatusCounts();
   const totalPatients = adminPatients().length;
@@ -697,7 +721,7 @@ function adminDashboard() {
         <h1>Good morning, Admin</h1>
         <p>Here's what's happening today at MediTrack</p>
       </div>
-      <button class="admin-bell" type="button" data-view="adminChat">!${unread ? `<span>${unread}</span>` : ""}</button>
+      <button class="admin-bell" type="button" data-view="adminChat">!<span ${unread ? "" : "hidden"}>${unread}</span></button>
     </div>
     <div class="admin-feature-grid">
       ${adminFeatureCard("P", totalPatients || 1284, "Total Patients", "+12% this month", "pink")}
@@ -1499,6 +1523,7 @@ setInterval(async () => {
     const previousUnread = unreadNotificationCount();
     const nextUnread = notificationData.notifications.filter(item => !item.read).length;
     state.notifications = notificationData.notifications;
+    syncNotificationBadges();
     if (nextUnread > previousUnread && state.notifications[0]) {
       toast(state.notifications[0].title);
       if (state.user?.role === "admin" && state.view === "adminDashboard") adminDashboard();
